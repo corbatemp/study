@@ -2,7 +2,8 @@ module Main where
 
 -- add some comment
 
-import Lib
+import MyWriter
 
 main :: IO ()
-main = someFunc
+main = do
+  mainwriter
