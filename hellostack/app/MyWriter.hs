@@ -15,6 +15,9 @@ instance (Monoid m) => Monad (MyWriter m) where
   (MyWriter (r, s)) >>= f = let (r', s') = runMyWriter (f r)
                             in MyWriter (r', s `mappend` s')
 
+mytell :: m -> MyWriter m m
+mytell s = MyWriter (s, s)
+
 mainwriter :: IO ()
 mainwriter = do
   print "hello mywriter"

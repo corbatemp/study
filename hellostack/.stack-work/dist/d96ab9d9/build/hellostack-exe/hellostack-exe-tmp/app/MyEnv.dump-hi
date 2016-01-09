@@ -1,0 +1,191 @@
+
+==================== FINAL INTERFACE ====================
+2016-01-09 15:27:42.8507576 UTC
+
+interface main@main:MyEnv 7102
+  interface hash: 4a96fc95fcffcdacde278e9cf414577a
+  ABI hash: f8c007a160a4430d2a55aef5e826011c
+  export-list hash: af1d2f8d09cdb8f6fda999c3d313957d
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: bd4988337968f447c8105e933c7b6aad
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  MyEnv.mainenv
+  MyEnv.runMyEnv
+  MyEnv.MyEnv{MyEnv.MyEnv}
+module dependencies:
+package dependencies: array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ
+                      base-4.8.1.0* binary-0.7.5.0@binar_IvYoLp9H6Xy3zEH13MmZwd
+                      bytestring-0.10.6.0@bytes_6elQVSg5cWdFrvRnfxTUrH
+                      comonad-4.2.7.2@comon_EsayKmuIGPJJdbMoBEcxRq
+                      containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN
+                      deepseq-1.4.1.1@deeps_LbCWUlehDDeLxurARKDH5o ghc-prim-0.4.0.0
+                      hashable-1.2.3.3@hasha_2GTZqecVp8NJZrNuKzGxfy integer-gmp-1.0.0.0
+                      semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO
+                      tagged-0.8.1@tagge_6Tf46oJAk552xT73wGffBW
+                      text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh
+                      transformers-0.4.2.0@trans_3eG64VdP2vzGjP6wJiCp5X
+                      unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+         binary-0.7.5.0@binar_IvYoLp9H6Xy3zEH13MmZwd:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_6elQVSg5cWdFrvRnfxTUrH:Data.ByteString.Builder
+         hashable-1.2.3.3@hasha_2GTZqecVp8NJZrNuKzGxfy:Data.Hashable.Generic
+         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text
+         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Lazy
+         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Show
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Functor.Identity
+                         base-4.8.1.0:Data.Monoid base-4.8.1.0:Data.Type.Equality
+                         base-4.8.1.0:Data.Void base-4.8.1.0:GHC.Exts
+                         base-4.8.1.0:GHC.Generics
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.IntMap.Base
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.IntSet.Base
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.Map.Base
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.Sequence
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.Set.Base
+                         semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO:Data.List.NonEmpty
+                         semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO:Data.Semigroup
+                         tagged-0.8.1@tagge_6Tf46oJAk552xT73wGffBW:Data.Tagged
+                         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text
+                         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Lazy
+                         unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashMap.Base
+                         unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashSet
+import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  base-4.8.1.0:System.IO 5482930cc48b7457dc7c518d05c22912
+import  -/  comonad-4.2.7.2@comon_EsayKmuIGPJJdbMoBEcxRq:Control.Comonad f37f1bf0b57658df665d730622dfb008
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+f4259df60a30e8053dc9c44dce1556a9
+  $fComonadMyEnv ::
+    GHC.Base.Functor (MyEnv.MyEnv e) =>
+    Control.Comonad.Comonad (MyEnv.MyEnv e)
+  DFunId[1]
+  {- Arity: 1, Strictness: <L,U(U,U)>m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ e $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e).
+                  @ (MyEnv.MyEnv e)
+                  $dFunctor
+                  (MyEnv.$fComonadMyEnv_$cextract @ e $dFunctor)
+                  (MyEnv.$fComonadMyEnv_$cduplicate @ e $dFunctor)
+                  (MyEnv.$fComonadMyEnv_$cextend @ e $dFunctor) -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fComonadMyEnv1 :: MyEnv.MyEnv e a -> a
+  {- Strictness: b -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fComonadMyEnv_$cduplicate ::
+    GHC.Base.Functor (MyEnv.MyEnv e) =>
+    forall a. MyEnv.MyEnv e a -> MyEnv.MyEnv e (MyEnv.MyEnv e a)
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(U),A)> -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fComonadMyEnv_$cextend ::
+    GHC.Base.Functor (MyEnv.MyEnv e) =>
+    forall a b.
+    (MyEnv.MyEnv e a -> b) -> MyEnv.MyEnv e a -> MyEnv.MyEnv e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U(C(U),A)><L,U>,
+     Unfolding: (\ @ e
+                   $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e)
+                   @ a1
+                   @ b
+                   eta :: MyEnv.MyEnv e a1 -> b ->
+                 let {
+                   f :: MyEnv.MyEnv e (MyEnv.MyEnv e a1) -> MyEnv.MyEnv e b
+                   = GHC.Base.fmap
+                       @ (MyEnv.MyEnv e)
+                       $dFunctor
+                       @ (MyEnv.MyEnv e a1)
+                       @ b
+                       eta
+                 } in
+                 let {
+                   g :: MyEnv.MyEnv e a1 -> MyEnv.MyEnv e (MyEnv.MyEnv e a1)
+                   = MyEnv.$fComonadMyEnv_$cduplicate @ e $dFunctor @ a1
+                 } in
+                 \ x :: MyEnv.MyEnv e a1 -> f (g x)) -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fComonadMyEnv_$cextract ::
+    GHC.Base.Functor (MyEnv.MyEnv e) => forall a. MyEnv.MyEnv e a -> a
+  {- Arity: 1, Strictness: <B,A>b,
+     Unfolding: InlineRule (1, True, True)
+                (\ @ e $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e) ->
+                 MyEnv.$fComonadMyEnv1 @ e) -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fFunctorMyEnv :: GHC.Base.Functor (MyEnv.MyEnv e)
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ e.
+                  @ (MyEnv.MyEnv e)
+                  (MyEnv.$fFunctorMyEnv_$cfmap @ e)
+                  (MyEnv.$fFunctorMyEnv_$c<$ @ e) -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fFunctorMyEnv_$c<$ :: a -> MyEnv.MyEnv e b -> MyEnv.MyEnv e a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U(U,A)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a @ b eta :: a ds :: MyEnv.MyEnv e b ->
+                 case ds of wild { MyEnv.MyEnv e1 a1 ->
+                 MyEnv.MyEnv @ e @ a e1 eta }) -}
+f4259df60a30e8053dc9c44dce1556a9
+  $fFunctorMyEnv_$cfmap ::
+    (a -> b) -> MyEnv.MyEnv e a -> MyEnv.MyEnv e b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a @ b f :: a -> b ds :: MyEnv.MyEnv e a ->
+                 case ds of wild { MyEnv.MyEnv e1 a1 ->
+                 MyEnv.MyEnv @ e @ b e1 (f a1) }) -}
+f4259df60a30e8053dc9c44dce1556a9
+  data MyEnv e a = MyEnv e a
+    Promotable
+04bcf00589107c78c47f08aedf7532ff
+  mainenv :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                MyEnv.mainenv1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+1a42ac6b927bb7d701dcc2b982671f9f
+  mainenv1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ eta :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   MyEnv.mainenv2
+                   GHC.Types.True
+                   eta) -}
+ffe00bf68ba22d08774fe02b80f4f12c
+  mainenv2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   MyEnv.mainenv3) -}
+51a3b222bb7fb694829de713fd648cd8
+  mainenv3 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   MyEnv.mainenv5
+                   MyEnv.mainenv4) -}
+3db1f8457294467b7f9d8f10dd384e08
+  mainenv4 :: [GHC.Types.Char]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+23b02baa2cc5c2e6b1ff520725d2f0c8
+  mainenv5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "mainenv"#) -}
+619a883f351954bee978ae3c11f5cad2
+  runMyEnv :: MyEnv.MyEnv e a -> (e, a)
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ e @ a ds :: MyEnv.MyEnv e a ->
+                 case ds of wild { MyEnv.MyEnv e1 a1 -> (e1, a1) }) -}
+instance Control.Comonad.Comonad [MyEnv.MyEnv]
+  = MyEnv.$fComonadMyEnv
+instance GHC.Base.Functor [MyEnv.MyEnv] = MyEnv.$fFunctorMyEnv
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

@@ -1,0 +1,350 @@
+
+==================== FINAL INTERFACE ====================
+2016-01-03 06:18:00.7394254 UTC
+
+interface main@main:MyWriter 7102
+  interface hash: 583ba9564d8fde7c16a6e25c6ddb2f05
+  ABI hash: 0b748c4f4a80ca0397682d6f130f6e82
+  export-list hash: a9160e8d82a5575b84ad66a9c3398562
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: bd4988337968f447c8105e933c7b6aad
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  MyWriter.mainwriter
+  MyWriter.MyWriter{MyWriter.MyWriter MyWriter.runMyWriter}
+module dependencies:
+package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
+                         base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  base-4.8.1.0:System.IO 5482930cc48b7457dc7c518d05c22912
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+bafe20464bfe62ec03df42ba1597f8ba
+  $fApplicativeMyWriter ::
+    (GHC.Base.Functor (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    GHC.Base.Applicative (MyWriter.MyWriter m)
+  DFunId[1]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(U,U)><L,U(U,C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ m
+                      $dFunctor :: GHC.Base.Functor (MyWriter.MyWriter m)
+                      $dMonoid :: GHC.Base.Monoid m.
+                  @ (MyWriter.MyWriter m)
+                  $dFunctor
+                  (MyWriter.$fApplicativeMyWriter_$cpure @ m $dFunctor $dMonoid)
+                  (MyWriter.$fApplicativeMyWriter_$c<*> @ m $dFunctor $dMonoid)
+                  (MyWriter.$fApplicativeMyWriter_$c*> @ m $dFunctor $dMonoid)
+                  (MyWriter.$fApplicativeMyWriter_$c<* @ m $dFunctor $dMonoid) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fApplicativeMyWriter_$c*> ::
+    (GHC.Base.Functor (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a b.
+    MyWriter.MyWriter m a
+    -> MyWriter.MyWriter m b -> MyWriter.MyWriter m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(LC(C(S(S)))),1*U(A,1*C1(C1(U(1*U(1*U,U)))))><L,1*U(A,1*C1(C1(U)),A)><L,U><S(S),1*U(1*U(U,U))>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m
+                   w :: GHC.Base.Functor (MyWriter.MyWriter m)
+                   w1 :: GHC.Base.Monoid m
+                   @ a
+                   @ b
+                   w2 :: MyWriter.MyWriter m a
+                   w3 :: MyWriter.MyWriter m b ->
+                 case w3 of ww { MyWriter.MyWriter ww1 ->
+                 case ww1 of ww2 { (,) ww3 ww4 ->
+                 case GHC.Base.<$
+                        @ (MyWriter.MyWriter m)
+                        w
+                        @ (b -> b)
+                        @ a
+                        (GHC.Base.id @ b)
+                        w2 of wild { MyWriter.MyWriter ds ->
+                 case ds of wild1 { (,) fa s ->
+                 MyWriter.MyWriter
+                   @ m
+                   @ b
+                   (fa ww3, GHC.Base.mappend @ m w1 s ww4) } } } }) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fApplicativeMyWriter_$c<* ::
+    (GHC.Base.Functor (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a b.
+    MyWriter.MyWriter m a
+    -> MyWriter.MyWriter m b -> MyWriter.MyWriter m a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <S(C(C(S(S)))L),1*U(1*C1(C1(U(1*U(1*U,U)))),A)><L,1*U(A,1*C1(C1(U)),A)><L,U><S(S),1*U(1*U(U,U))>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m
+                   w :: GHC.Base.Functor (MyWriter.MyWriter m)
+                   w1 :: GHC.Base.Monoid m
+                   @ a
+                   @ b
+                   w2 :: MyWriter.MyWriter m a
+                   w3 :: MyWriter.MyWriter m b ->
+                 case w3 of ww { MyWriter.MyWriter ww1 ->
+                 case ww1 of ww2 { (,) ww3 ww4 ->
+                 case GHC.Base.fmap
+                        @ (MyWriter.MyWriter m)
+                        w
+                        @ a
+                        @ (b -> a)
+                        (GHC.Base.const @ a @ b)
+                        w2 of wild { MyWriter.MyWriter ds ->
+                 case ds of wild1 { (,) fa s ->
+                 MyWriter.MyWriter
+                   @ m
+                   @ a
+                   (fa ww3, GHC.Base.mappend @ m w1 s ww4) } } } }) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fApplicativeMyWriter_$c<*> ::
+    (GHC.Base.Functor (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a b.
+    MyWriter.MyWriter m (a -> b)
+    -> MyWriter.MyWriter m a -> MyWriter.MyWriter m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*U(A,1*C1(C1(U)),A)><S(S),1*U(1*U(1*C1(U),U))><S(S),1*U(1*U(U,U))>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m
+                   w :: GHC.Base.Functor (MyWriter.MyWriter m)
+                   w1 :: GHC.Base.Monoid m
+                   @ a
+                   @ b
+                   w2 :: MyWriter.MyWriter m (a -> b)
+                   w3 :: MyWriter.MyWriter m a ->
+                 case w2 of ww { MyWriter.MyWriter ww1 ->
+                 case ww1 of ww2 { (,) ww3 ww4 ->
+                 case w3 of ww5 { MyWriter.MyWriter ww6 ->
+                 case ww6 of ww7 { (,) ww8 ww9 ->
+                 MyWriter.MyWriter
+                   @ m
+                   @ b
+                   (ww3 ww8, GHC.Base.mappend @ m w1 ww4 ww9) } } } }) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fApplicativeMyWriter_$cpure ::
+    (GHC.Base.Functor (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a. a -> MyWriter.MyWriter m a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,1*U(1*U,A,A)><L,U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m
+                   $dFunctor :: GHC.Base.Functor (MyWriter.MyWriter m)
+                   $dMonoid :: GHC.Base.Monoid m
+                   @ a
+                   r :: a ->
+                 MyWriter.MyWriter @ m @ a (r, GHC.Base.mempty @ m $dMonoid)) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fFunctorMyWriter :: GHC.Base.Functor (MyWriter.MyWriter m)
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ m.
+                  @ (MyWriter.MyWriter m)
+                  (MyWriter.$fFunctorMyWriter_$cfmap @ m)
+                  (MyWriter.$fFunctorMyWriter_$c<$ @ m) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fFunctorMyWriter_$c<$ ::
+    a -> MyWriter.MyWriter m b -> MyWriter.MyWriter m a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><L,1*U(1*U(A,1*U))>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m @ a @ b eta :: a m1 :: MyWriter.MyWriter m b ->
+                 MyWriter.MyWriter
+                   @ m
+                   @ a
+                   (eta,
+                    case m1 of wild { MyWriter.MyWriter ds ->
+                    case ds of wild1 { (,) a1 s -> s } })) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fFunctorMyWriter_$cfmap ::
+    (a -> b) -> MyWriter.MyWriter m a -> MyWriter.MyWriter m b
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><L,1*U(1*U(U,U))>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ m @ a @ b f :: a -> b m1 :: MyWriter.MyWriter m a ->
+                 MyWriter.MyWriter
+                   @ m
+                   @ b
+                   (let {
+                      ds :: (a, m) = case m1 of wild { MyWriter.MyWriter ds1 -> ds1 }
+                    } in
+                    (f (case ds of wild { (,) a1 s -> a1 }),
+                     case ds of wild { (,) a1 s -> s }))) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fMonadMyWriter ::
+    (GHC.Base.Applicative (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    GHC.Base.Monad (MyWriter.MyWriter m)
+  DFunId[1]
+  {- Arity: 2, Strictness: <L,U><L,U(U,C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ m
+                      $dApplicative :: GHC.Base.Applicative (MyWriter.MyWriter m)
+                      $dMonoid :: GHC.Base.Monoid m.
+                  @ (MyWriter.MyWriter m)
+                  $dApplicative
+                  (MyWriter.$fMonadMyWriter_$c>>= @ m $dApplicative $dMonoid)
+                  (MyWriter.$fMonadMyWriter_$c>> @ m $dApplicative $dMonoid)
+                  (MyWriter.$fMonadMyWriter_$creturn @ m $dApplicative $dMonoid)
+                  (MyWriter.$fMonadMyWriter_$cfail @ m $dApplicative $dMonoid) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fMonadMyWriter_$c>> ::
+    (GHC.Base.Applicative (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a b.
+    MyWriter.MyWriter m a
+    -> MyWriter.MyWriter m b -> MyWriter.MyWriter m b
+  {- Arity: 4, Strictness: <L,U><L,U(U,C(C1(U)),A)><L,U><L,U>,
+     Inline: INLINE (sat-args=2),
+     Unfolding: InlineRule (4, False, False)
+                (\ @ m
+                   $dApplicative :: GHC.Base.Applicative (MyWriter.MyWriter m)
+                   $dMonoid :: GHC.Base.Monoid m
+                   @ a
+                   @ b
+                   m1 :: MyWriter.MyWriter m a
+                   k :: MyWriter.MyWriter m b ->
+                 MyWriter.$fMonadMyWriter_$c>>=
+                   @ m
+                   $dApplicative
+                   $dMonoid
+                   @ a
+                   @ b
+                   m1
+                   (\ ds :: a[OneShot] -> k)) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fMonadMyWriter_$c>>= ::
+    (GHC.Base.Applicative (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a b.
+    MyWriter.MyWriter m a
+    -> (a -> MyWriter.MyWriter m b) -> MyWriter.MyWriter m b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,A><L,1*U(A,1*C1(C1(U)),A)><S(S),1*U(1*U(U,U))><L,1*C1(U(1*U(U,U)))>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ m
+                   w :: GHC.Base.Applicative (MyWriter.MyWriter m)
+                   w1 :: GHC.Base.Monoid m
+                   @ a
+                   @ b
+                   w2 :: MyWriter.MyWriter m a
+                   w3 :: a -> MyWriter.MyWriter m b ->
+                 case w2 of ww { MyWriter.MyWriter ww1 ->
+                 case ww1 of ww2 { (,) ww3 ww4 ->
+                 MyWriter.MyWriter
+                   @ m
+                   @ b
+                   (let {
+                      ds :: (b, m) = case w3 ww3 of wild { MyWriter.MyWriter ds1 -> ds1 }
+                    } in
+                    (case ds of wild { (,) r' s' -> r' },
+                     GHC.Base.mappend
+                       @ m
+                       w1
+                       ww4
+                       (case ds of wild { (,) r' s' -> s' }))) } }) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fMonadMyWriter_$cfail ::
+    (GHC.Base.Applicative (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a. GHC.Base.String -> MyWriter.MyWriter m a
+  {- Arity: 3, Strictness: <B,A><B,A><B,U>b,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ m
+                   $dApplicative :: GHC.Base.Applicative (MyWriter.MyWriter m)
+                   $dMonoid :: GHC.Base.Monoid m
+                   @ a
+                   eta :: [GHC.Types.Char] ->
+                 GHC.Err.error @ (MyWriter.MyWriter m a) eta) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  $fMonadMyWriter_$creturn ::
+    (GHC.Base.Applicative (MyWriter.MyWriter m), GHC.Base.Monoid m) =>
+    forall a. a -> MyWriter.MyWriter m a
+  {- Arity: 3, HasNoCafRefs, Strictness: <L,A><L,1*U(1*U,A,A)><L,U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ m
+                   $dApplicative :: GHC.Base.Applicative (MyWriter.MyWriter m)
+                   $dMonoid :: GHC.Base.Monoid m
+                   @ a
+                   r :: a ->
+                 MyWriter.MyWriter @ m @ a (r, GHC.Base.mempty @ m $dMonoid)) -}
+bafe20464bfe62ec03df42ba1597f8ba
+  data MyWriter m a = MyWriter {runMyWriter :: (a, m)}
+    Promotable
+47dc9e1483f5a1667839984c57b49698
+  mainwriter :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                MyWriter.mainwriter1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+4f9e02b367024c1c8243b8736080c2a3
+  mainwriter1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        MyWriter.mainwriter5
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   MyWriter.mainwriter2
+                   GHC.Types.True
+                   ipv }) -}
+11b4c2893fc296cc26c4bd636e66aa7d
+  mainwriter2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   MyWriter.mainwriter3) -}
+d5365a80612370aec80c02bd8386cf44
+  mainwriter3 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   (GHC.Types.[] @ GHC.Types.Char)
+                   MyWriter.mainwriter4) -}
+961f26b7d8478331e075e381ed550336
+  mainwriter4 :: [GHC.Types.Char]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+960ff9717c3dcb71e84c9fef408478fd
+  mainwriter5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   MyWriter.mainwriter6) -}
+dde89d130e0a0b798699682d28b3686f
+  mainwriter6 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   MyWriter.mainwriter7
+                   MyWriter.mainwriter4) -}
+f7fe0fde81715fcd5a986cb59d3216b3
+  mainwriter7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "hello mywriter"#) -}
+278ca0f53d8ee5ee438dc12895465f76
+  runMyWriter :: MyWriter.MyWriter m a -> (a, m)
+  RecSel MyWriter.MyWriter
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(1*U(U,U))>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ m @ a ds :: MyWriter.MyWriter m a ->
+                 case ds of wild { MyWriter.MyWriter ds1 -> ds1 }) -}
+instance GHC.Base.Applicative [MyWriter.MyWriter]
+  = MyWriter.$fApplicativeMyWriter
+instance GHC.Base.Functor [MyWriter.MyWriter]
+  = MyWriter.$fFunctorMyWriter
+instance GHC.Base.Monad [MyWriter.MyWriter]
+  = MyWriter.$fMonadMyWriter
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
