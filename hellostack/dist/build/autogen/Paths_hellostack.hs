@@ -17,9 +17,9 @@ version = Version [0,1,0,0] []
 bindir, libdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\bin"
-libdir     = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\x86_64-windows-ghc-7.10.2\\hellostack-0.1.0.0-DLREffOzVCK06ztifNhmob"
+libdir     = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\x86_64-windows-ghc-7.10.2\\hellostack-0.1.0.0-DoZpS67bD64DAKybqTklo1"
 datadir    = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\x86_64-windows-ghc-7.10.2\\hellostack-0.1.0.0"
-libexecdir = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\hellostack-0.1.0.0-DLREffOzVCK06ztifNhmob"
+libexecdir = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\hellostack-0.1.0.0-DoZpS67bD64DAKybqTklo1"
 sysconfdir = "C:\\Users\\petr\\AppData\\Roaming\\cabal\\etc"
 
 getBinDir, getLibDir, getDataDir, getLibexecDir, getSysconfDir :: IO FilePath

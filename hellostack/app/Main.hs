@@ -10,6 +10,10 @@ import Control.Comonad.Trans.Coiter
 import Control.Comonad.Env
 import Data.Foldable
 
+import Adder
+import FreeAdder
+import CoFreeAdder
+
 testi :: CoiterT (Env Char) Int
 testi = unfold ( extract . fmap (+1) ) (env 'a' 1)
 
@@ -21,11 +25,13 @@ tests = unfold ( \ wd ->
 test :: CoiterT (MyEnv Char) (Int , String)
 test = tests =>> (\ wd ->
   let smb = myask ( runCoiterT wd )
-  in (length ( extract wd) , (extract wd) ++ (show smb)))
+  in (length ( extract wd) , extract wd ++ show smb))
+
 
 rs = find ((> 100) . fst) test
 
 main :: IO ()
 main = do
-  print "hello store"
-  print rs
+  print "hello world"
+  mainfreeadder
+  maincofreeadder

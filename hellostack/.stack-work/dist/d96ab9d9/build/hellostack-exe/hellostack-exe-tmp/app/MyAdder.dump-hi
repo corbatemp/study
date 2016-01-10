@@ -1,0 +1,143 @@
+
+==================== FINAL INTERFACE ====================
+2016-01-10 01:43:49.0915017 UTC
+
+interface main@main:MyAdder 7102
+  interface hash: 0975c299cb7af9b2c433f45ed3fb4cde
+  ABI hash: c727fb419bb24c99d04a58e41763c842
+  export-list hash: 81b43972b1144c0fd42a90b660a16164
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: bd4988337968f447c8105e933c7b6aad
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  MyAdder.AdderF{MyAdder.Add MyAdder.Clear MyAdder.Total}
+module dependencies:
+package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
+                      integer-gmp-1.0.0.0
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
+                         base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
+import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
+import  -/  base-4.8.1.0:GHC.Show b8c65ca3124f92a166c9f05120382442
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+0871b1fbf17bca771c0311609c561bc3
+  $fFunctorAdderF :: GHC.Base.Functor MyAdder.AdderF
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ MyAdder.AdderF
+                  MyAdder.$fFunctorAdderF_$cfmap
+                  MyAdder.$fFunctorAdderF_$c<$ -}
+0871b1fbf17bca771c0311609c561bc3
+  $fFunctorAdderF_$c<$ :: a -> MyAdder.AdderF b -> MyAdder.AdderF a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b eta :: a eta1 :: MyAdder.AdderF b ->
+                 case eta1 of wild {
+                   MyAdder.Add n k -> MyAdder.Add @ a n eta
+                   MyAdder.Clear k -> MyAdder.Clear @ a eta
+                   MyAdder.Total g
+                   -> MyAdder.Total @ a (\ x :: GHC.Types.Int -> eta) }) -}
+0871b1fbf17bca771c0311609c561bc3
+  $fFunctorAdderF_$cfmap ::
+    (a -> b) -> MyAdder.AdderF a -> MyAdder.AdderF b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
+     Unfolding: (\ @ a @ b f :: a -> b ds :: MyAdder.AdderF a ->
+                 case ds of wild {
+                   MyAdder.Add n k -> MyAdder.Add @ b n (f k)
+                   MyAdder.Clear k -> MyAdder.Clear @ b (f k)
+                   MyAdder.Total g
+                   -> MyAdder.Total @ b (GHC.Base.. @ a @ b @ GHC.Types.Int f g) }) -}
+0871b1fbf17bca771c0311609c561bc3
+  $fShowAdderF :: GHC.Show.Show (MyAdder.AdderF k)
+  DFunId[0]
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ k.
+                  @ (MyAdder.AdderF k)
+                  (MyAdder.$fShowAdderF_$cshowsPrec @ k)
+                  (MyAdder.$fShowAdderF_$cshow @ k)
+                  (MyAdder.$fShowAdderF_$cshowList @ k) -}
+0871b1fbf17bca771c0311609c561bc3
+  $fShowAdderF1 ::
+    MyAdder.AdderF k -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ @ k
+                   x :: MyAdder.AdderF k
+                   s :: GHC.Base.String[OneShot] ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (MyAdder.$fShowAdderF_$cshow @ k x)
+                   s) -}
+1a5891dbaa1d709ad3529ba6ce7de5e7
+  $fShowAdderF2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " Total g "#) -}
+7f005fc09215d9eb7e7412e07e5c5c97
+  $fShowAdderF3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " Clear k "#) -}
+488304c4b2fb1376d71a5d3ee11ef61b
+  $fShowAdderF4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# " k "#) -}
+0871b1fbf17bca771c0311609c561bc3
+  $fShowAdderF_$cshow :: MyAdder.AdderF k -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ k ds :: MyAdder.AdderF k ->
+                 case ds of wild {
+                   MyAdder.Add n k1
+                   -> GHC.CString.unpackAppendCString#
+                        " Add "#
+                        (case n of ww2 { GHC.Types.I# ww3 ->
+                         case GHC.Show.$wshowSignedInt
+                                0
+                                ww3
+                                (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww5 ww6)
+                           MyAdder.$fShowAdderF4 } })
+                   MyAdder.Clear k1 -> MyAdder.$fShowAdderF3
+                   MyAdder.Total g -> MyAdder.$fShowAdderF2 }) -}
+0871b1fbf17bca771c0311609c561bc3
+  $fShowAdderF_$cshowList :: [MyAdder.AdderF k] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ @ k ls :: [MyAdder.AdderF k] s :: GHC.Base.String ->
+                 GHC.Show.showList__
+                   @ (MyAdder.AdderF k)
+                   (MyAdder.$fShowAdderF1 @ k)
+                   ls
+                   s) -}
+0871b1fbf17bca771c0311609c561bc3
+  $fShowAdderF_$cshowsPrec ::
+    GHC.Types.Int -> MyAdder.AdderF k -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ k
+                   ds :: GHC.Types.Int
+                   x :: MyAdder.AdderF k
+                   s :: GHC.Base.String ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (MyAdder.$fShowAdderF_$cshow @ k x))
+                   s) -}
+0871b1fbf17bca771c0311609c561bc3
+  data AdderF k
+    = Add GHC.Types.Int k | Clear k | Total (GHC.Types.Int -> k)
+instance GHC.Base.Functor [MyAdder.AdderF]
+  = MyAdder.$fFunctorAdderF
+instance GHC.Show.Show [MyAdder.AdderF] = MyAdder.$fShowAdderF
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

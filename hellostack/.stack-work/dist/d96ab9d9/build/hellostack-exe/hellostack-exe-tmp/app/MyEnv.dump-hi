@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-01-09 15:27:42.8507576 UTC
+2016-01-10 01:43:49.8332675 UTC
 
 interface main@main:MyEnv 7102
-  interface hash: 4a96fc95fcffcdacde278e9cf414577a
-  ABI hash: f8c007a160a4430d2a55aef5e826011c
-  export-list hash: af1d2f8d09cdb8f6fda999c3d313957d
+  interface hash: 40fe4aabc96d96783940a2a8cbde76e1
+  ABI hash: 9878ad38a6f6dfaa7a97dbc8436b3e49
+  export-list hash: b043bba5d347aa10650b44d4df598bb7
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: bd4988337968f447c8105e933c7b6aad
   sig of: Nothing
@@ -13,6 +13,7 @@ interface main@main:MyEnv 7102
   where
 exports:
   MyEnv.mainenv
+  MyEnv.myask
   MyEnv.runMyEnv
   MyEnv.MyEnv{MyEnv.MyEnv}
 module dependencies:
@@ -52,64 +53,247 @@ family instance modules: base-4.8.1.0:Control.Applicative
                          text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Lazy
                          unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashMap.Base
                          unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashSet
+import  -/  base-4.8.1.0:Data.Foldable 2e5acb797cfda6b3b7fabd7052abe290
 import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
 import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
 import  -/  base-4.8.1.0:System.IO 5482930cc48b7457dc7c518d05c22912
 import  -/  comonad-4.2.7.2@comon_EsayKmuIGPJJdbMoBEcxRq:Control.Comonad f37f1bf0b57658df665d730622dfb008
 import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
-f4259df60a30e8053dc9c44dce1556a9
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fComonadMyEnv ::
     GHC.Base.Functor (MyEnv.MyEnv e) =>
     Control.Comonad.Comonad (MyEnv.MyEnv e)
   DFunId[1]
-  {- Arity: 1, Strictness: <L,U(U,U)>m, Inline: [ALWAYS] CONLIKE,
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>m,
+     Inline: [ALWAYS] CONLIKE,
      Unfolding: DFun: @ e $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e).
                   @ (MyEnv.MyEnv e)
                   $dFunctor
                   (MyEnv.$fComonadMyEnv_$cextract @ e $dFunctor)
                   (MyEnv.$fComonadMyEnv_$cduplicate @ e $dFunctor)
                   (MyEnv.$fComonadMyEnv_$cextend @ e $dFunctor) -}
-f4259df60a30e8053dc9c44dce1556a9
-  $fComonadMyEnv1 :: MyEnv.MyEnv e a -> a
-  {- Strictness: b -}
-f4259df60a30e8053dc9c44dce1556a9
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fComonadMyEnv_$cduplicate ::
     GHC.Base.Functor (MyEnv.MyEnv e) =>
     forall a. MyEnv.MyEnv e a -> MyEnv.MyEnv e (MyEnv.MyEnv e a)
-  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(C(U),A)> -}
-f4259df60a30e8053dc9c44dce1556a9
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U(U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e)
+                   @ a1
+                   ds :: MyEnv.MyEnv e a1 ->
+                 case ds of wild { MyEnv.MyEnv e1 a ->
+                 MyEnv.MyEnv
+                   @ e
+                   @ (MyEnv.MyEnv e a1)
+                   e1
+                   (MyEnv.MyEnv @ e @ a1 e1 a) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fComonadMyEnv_$cextend ::
     GHC.Base.Functor (MyEnv.MyEnv e) =>
     forall a b.
     (MyEnv.MyEnv e a -> b) -> MyEnv.MyEnv e a -> MyEnv.MyEnv e b
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,U(C(U),A)><L,U>,
-     Unfolding: (\ @ e
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,A><L,1*C1(U)><S,1*U(U,U)>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ e
                    $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e)
-                   @ a1
+                   @ a
                    @ b
-                   eta :: MyEnv.MyEnv e a1 -> b ->
-                 let {
-                   f :: MyEnv.MyEnv e (MyEnv.MyEnv e a1) -> MyEnv.MyEnv e b
-                   = GHC.Base.fmap
-                       @ (MyEnv.MyEnv e)
-                       $dFunctor
-                       @ (MyEnv.MyEnv e a1)
-                       @ b
-                       eta
-                 } in
-                 let {
-                   g :: MyEnv.MyEnv e a1 -> MyEnv.MyEnv e (MyEnv.MyEnv e a1)
-                   = MyEnv.$fComonadMyEnv_$cduplicate @ e $dFunctor @ a1
-                 } in
-                 \ x :: MyEnv.MyEnv e a1 -> f (g x)) -}
-f4259df60a30e8053dc9c44dce1556a9
+                   f :: MyEnv.MyEnv e a -> b
+                   ds :: MyEnv.MyEnv e a ->
+                 case ds of wild { MyEnv.MyEnv e1 a1 ->
+                 MyEnv.MyEnv @ e @ b e1 (f (MyEnv.MyEnv @ e @ a e1 a1)) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fComonadMyEnv_$cextract ::
     GHC.Base.Functor (MyEnv.MyEnv e) => forall a. MyEnv.MyEnv e a -> a
-  {- Arity: 1, Strictness: <B,A>b,
-     Unfolding: InlineRule (1, True, True)
-                (\ @ e $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e) ->
-                 MyEnv.$fComonadMyEnv1 @ e) -}
-f4259df60a30e8053dc9c44dce1556a9
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e
+                   $dFunctor :: GHC.Base.Functor (MyEnv.MyEnv e)
+                   @ a
+                   ds :: MyEnv.MyEnv e a ->
+                 case ds of wild { MyEnv.MyEnv e1 a1 -> a1 }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv :: Data.Foldable.Foldable (MyEnv.MyEnv e)
+  DFunId[0]
+  {- HasNoCafRefs, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ e.
+                  @ (MyEnv.MyEnv e)
+                  (MyEnv.$fFoldableMyEnv_$cfold @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldMap @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldr @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldr @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldl' @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldl' @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldr1 @ e)
+                  (MyEnv.$fFoldableMyEnv_$cfoldr1 @ e)
+                  (MyEnv.$fFoldableMyEnv_$ctoList @ e)
+                  (MyEnv.$fFoldableMyEnv_$cnull @ e)
+                  (MyEnv.$fFoldableMyEnv_$clength @ e)
+                  (MyEnv.$fFoldableMyEnv_$celem @ e)
+                  (MyEnv.$fFoldableMyEnv_$cmaximum @ e)
+                  (MyEnv.$fFoldableMyEnv_$cmaximum @ e)
+                  (MyEnv.$fFoldableMyEnv_$csum @ e)
+                  (MyEnv.$fFoldableMyEnv_$cproduct @ e) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv1 ::
+    GHC.Num.Num a3 => MyEnv.MyEnv e a3 -> Data.Monoid.Product a3
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LLLL),U(A,A,1*C1(C1(U)),A,A,A,1*C1(U))><S,1*U(A,U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a3 $dNum :: GHC.Num.Num a3 eta :: MyEnv.MyEnv e a3 ->
+                 case eta of wild { MyEnv.MyEnv e1 r ->
+                 (GHC.Num.*
+                    @ a3
+                    $dNum
+                    r
+                    (GHC.Num.fromInteger @ a3 $dNum Data.Monoid.$fMonoidProduct1))
+                   `cast`
+                 (Sym (Data.Monoid.NTCo:Product[0] <a3>_R)) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv2 ::
+    GHC.Num.Num a3 => MyEnv.MyEnv e a3 -> Data.Monoid.Sum a3
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(C(C(S))LLLLLL),U(1*C1(C1(U)),A,A,A,A,A,1*C1(U))><S,1*U(A,U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a3 $dNum :: GHC.Num.Num a3 eta :: MyEnv.MyEnv e a3 ->
+                 case eta of wild { MyEnv.MyEnv e1 r ->
+                 (GHC.Num.+
+                    @ a3
+                    $dNum
+                    r
+                    (GHC.Num.fromInteger @ a3 $dNum Data.Monoid.$fMonoidSum1))
+                   `cast`
+                 (Sym (Data.Monoid.NTCo:Sum[0] <a3>_R)) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv3 ::
+    GHC.Classes.Eq a3 => a3 -> MyEnv.MyEnv e a3 -> Data.Monoid.Any
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*C1(U),A)><L,U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a3 $dEq :: GHC.Classes.Eq a3 eta :: a3 ->
+                 let {
+                   a :: a3 -> GHC.Types.Bool = GHC.Classes.== @ a3 $dEq eta
+                 } in
+                 \ eta1 :: MyEnv.MyEnv e a3 ->
+                 case eta1 of wild { MyEnv.MyEnv e1 r ->
+                 (a r) `cast` (Sym (Data.Monoid.NTCo:Any[0])) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$celem ::
+    GHC.Classes.Eq a => a -> MyEnv.MyEnv e a -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(1*C1(U),A)><L,U>,
+     Unfolding: InlineRule (0, True, True)
+                MyEnv.$fFoldableMyEnv3
+                  `cast`
+                (forall e a3.
+                 <GHC.Classes.Eq a3>_R
+                 ->_R <a3>_R
+                 ->_R <MyEnv.MyEnv e a3>_R
+                 ->_R Data.Monoid.NTCo:Any[0]) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cfold :: GHC.Base.Monoid m => MyEnv.MyEnv e m -> m
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LC(C(S))L),U(1*U,1*C1(C1(U)),A)><S,1*U(A,U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ m $dMonoid :: GHC.Base.Monoid m eta :: MyEnv.MyEnv e m ->
+                 case eta of wild { MyEnv.MyEnv e1 r ->
+                 GHC.Base.mappend
+                   @ m
+                   $dMonoid
+                   r
+                   (GHC.Base.mempty @ m $dMonoid) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cfoldMap ::
+    GHC.Base.Monoid m => (a -> m) -> MyEnv.MyEnv e a -> m
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S(LC(C(S))L),U(1*U,1*C1(C1(U)),A)><L,1*C1(U)><S,1*U(A,U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ e
+                   @ a3
+                   @ m
+                   $dMonoid :: GHC.Base.Monoid m
+                   f :: a3 -> m
+                   eta :: MyEnv.MyEnv e a3 ->
+                 case eta of wild { MyEnv.MyEnv e1 r ->
+                 GHC.Base.mappend
+                   @ m
+                   $dMonoid
+                   (f r)
+                   (GHC.Base.mempty @ m $dMonoid) }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cfoldl' ::
+    (b -> a -> b) -> b -> MyEnv.MyEnv e a -> b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(C(S)),1*C1(C1(U))><L,U><S,1*U(A,U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ e @ b @ a3 f :: b -> a3 -> b z0 :: b xs :: MyEnv.MyEnv e a3 ->
+                 case xs of wild { MyEnv.MyEnv e1 r -> f z0 r }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cfoldr ::
+    (a -> b -> b) -> b -> MyEnv.MyEnv e a -> b
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(C(S)),1*C1(C1(U))><L,U><S,1*U(A,U)>,
+     Unfolding: InlineRule (3, True, False)
+                (\ @ e @ a @ b f :: a -> b -> b z :: b ds :: MyEnv.MyEnv e a ->
+                 case ds of wild { MyEnv.MyEnv e1 r -> f r z }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cfoldr1 :: (a -> a -> a) -> MyEnv.MyEnv e a -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a3 f :: a3 -> a3 -> a3 xs :: MyEnv.MyEnv e a3 ->
+                 case xs of wild { MyEnv.MyEnv e1 r -> r }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$clength :: MyEnv.MyEnv e a -> GHC.Types.Int
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*H>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ e @ a3 xs :: MyEnv.MyEnv e a3 ->
+                 case xs of wild { MyEnv.MyEnv e1 r -> GHC.Types.I# 1 }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cmaximum ::
+    GHC.Classes.Ord a => MyEnv.MyEnv e a -> a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S(LS),1*U(A,1*U)>,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ e @ a3 $dOrd :: GHC.Classes.Ord a3 x :: MyEnv.MyEnv e a3 ->
+                 case x of wild { MyEnv.MyEnv e1 r -> r }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cnull :: MyEnv.MyEnv e a -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*H>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ e @ a3 ds :: MyEnv.MyEnv e a3 ->
+                 case ds of wild { MyEnv.MyEnv e1 r -> GHC.Types.False }) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$cproduct :: GHC.Num.Num a => MyEnv.MyEnv e a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(LLC(C(S))LLLL),U(A,A,1*C1(C1(U)),A,A,A,1*C1(U))><S,1*U(A,U)>,
+     Unfolding: InlineRule (0, True, True)
+                MyEnv.$fFoldableMyEnv1
+                  `cast`
+                (forall e a3.
+                 <GHC.Num.Num a3>_R
+                 ->_R <MyEnv.MyEnv e a3>_R
+                 ->_R Data.Monoid.NTCo:Product[0] <a3>_R) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$csum :: GHC.Num.Num a => MyEnv.MyEnv e a -> a
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <S(C(C(S))LLLLLL),U(1*C1(C1(U)),A,A,A,A,A,1*C1(U))><S,1*U(A,U)>,
+     Unfolding: InlineRule (0, True, True)
+                MyEnv.$fFoldableMyEnv2
+                  `cast`
+                (forall e a3.
+                 <GHC.Num.Num a3>_R
+                 ->_R <MyEnv.MyEnv e a3>_R
+                 ->_R Data.Monoid.NTCo:Sum[0] <a3>_R) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
+  $fFoldableMyEnv_$ctoList :: MyEnv.MyEnv e a -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <L,U>,
+     Inline: INLINE (sat-args=1),
+     Unfolding: InlineRule (1, False, False)
+                (\ @ e @ a3 t1 :: MyEnv.MyEnv e a3 ->
+                 GHC.Base.build
+                   @ a3
+                   (\ @ b c :: a3 -> b -> b[OneShot] n :: b[OneShot] ->
+                    MyEnv.$fFoldableMyEnv_$cfoldr @ e @ a3 @ b c n t1)) -}
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fFunctorMyEnv :: GHC.Base.Functor (MyEnv.MyEnv e)
   DFunId[0]
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -117,14 +301,14 @@ f4259df60a30e8053dc9c44dce1556a9
                   @ (MyEnv.MyEnv e)
                   (MyEnv.$fFunctorMyEnv_$cfmap @ e)
                   (MyEnv.$fFunctorMyEnv_$c<$ @ e) -}
-f4259df60a30e8053dc9c44dce1556a9
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fFunctorMyEnv_$c<$ :: a -> MyEnv.MyEnv e b -> MyEnv.MyEnv e a
   {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U(U,A)>m,
      Unfolding: InlineRule (2, True, False)
                 (\ @ e @ a @ b eta :: a ds :: MyEnv.MyEnv e b ->
                  case ds of wild { MyEnv.MyEnv e1 a1 ->
                  MyEnv.MyEnv @ e @ a e1 eta }) -}
-f4259df60a30e8053dc9c44dce1556a9
+dd869ea5751e2ebfa1228dd9f6abbef4
   $fFunctorMyEnv_$cfmap ::
     (a -> b) -> MyEnv.MyEnv e a -> MyEnv.MyEnv e b
   {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U,U)>m,
@@ -132,7 +316,7 @@ f4259df60a30e8053dc9c44dce1556a9
                 (\ @ e @ a @ b f :: a -> b ds :: MyEnv.MyEnv e a ->
                  case ds of wild { MyEnv.MyEnv e1 a1 ->
                  MyEnv.MyEnv @ e @ b e1 (f a1) }) -}
-f4259df60a30e8053dc9c44dce1556a9
+dd869ea5751e2ebfa1228dd9f6abbef4
   data MyEnv e a = MyEnv e a
     Promotable
 04bcf00589107c78c47f08aedf7532ff
@@ -172,7 +356,13 @@ ffe00bf68ba22d08774fe02b80f4f12c
 23b02baa2cc5c2e6b1ff520725d2f0c8
   mainenv5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "mainenv"#) -}
-619a883f351954bee978ae3c11f5cad2
+17818c9b13263e2f179c31cba7ab5ce1
+  myask :: MyEnv.MyEnv e a -> e
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SL),1*U(1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ e @ a ds :: MyEnv.MyEnv e a ->
+                 case ds of wild { MyEnv.MyEnv e1 ds1 -> e1 }) -}
+e65a5b99ff9ae67bf21864c3ca645f67
   runMyEnv :: MyEnv.MyEnv e a -> (e, a)
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U(U,U)>m,
      Unfolding: InlineRule (1, True, False)
@@ -180,6 +370,8 @@ ffe00bf68ba22d08774fe02b80f4f12c
                  case ds of wild { MyEnv.MyEnv e1 a1 -> (e1, a1) }) -}
 instance Control.Comonad.Comonad [MyEnv.MyEnv]
   = MyEnv.$fComonadMyEnv
+instance Data.Foldable.Foldable [MyEnv.MyEnv]
+  = MyEnv.$fFoldableMyEnv
 instance GHC.Base.Functor [MyEnv.MyEnv] = MyEnv.$fFunctorMyEnv
 vectorised variables:
 vectorised tycons:
