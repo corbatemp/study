@@ -1,22 +1,26 @@
 
 ==================== FINAL INTERFACE ====================
-2016-01-10 02:33:43.9535764 UTC
+2016-01-21 06:03:45.7952786 UTC
 
 interface main@main:FreeAdder 7102
-  interface hash: 5aeec47826bc07c24148539932ca6df1
-  ABI hash: d42271be6a0229136fd1aad2bbb38ed1
-  export-list hash: 360fff3b78a8a5b100eb96f1d5c0d515
-  orphan hash: 72138d7a82918bcdd58b2d15eac6b55f
-  flag hash: bd4988337968f447c8105e933c7b6aad
+  interface hash: c41adf533c7b3c37470e6925aa74ad61
+  ABI hash: 71b0ce1bb7bba0befdf6847110b6f20f
+  export-list hash: 02ad9d0c3e45f39cd4e777f7aec1b370
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 376bf446875441d9b121663599b112a2
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  FreeAdder.add3
   FreeAdder.mainfreeadder
-module dependencies: Adder
+  FreeAdder.Adder
+  FreeAdder.CoAdder
+  FreeAdder.CofreeA
+  FreeAdder.FreeA
+module dependencies: Adder Pairing
 package dependencies: StateVar-1.1.0.1@State_6K4a3UqSdqh6lGAm1wlr9s
                       array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ base-4.8.1.0*
+                      base-orphans-0.4.4@baseo_E55c3OEBLyu45sND7mOuE9
                       bifunctors-5@bifun_6cWzSBWZD9ID5wcfOFIydn
                       binary-0.7.5.0@binar_IvYoLp9H6Xy3zEH13MmZwd
                       bytestring-0.10.6.0@bytes_6elQVSg5cWdFrvRnfxTUrH
@@ -30,6 +34,7 @@ package dependencies: StateVar-1.1.0.1@State_6K4a3UqSdqh6lGAm1wlr9s
                       hashable-1.2.3.3@hasha_2GTZqecVp8NJZrNuKzGxfy integer-gmp-1.0.0.0
                       mtl-2.2.1@mtl_KMpng31YRYc5JfMWFZ3FCU
                       prelude-extras-0.4.0.2@prelu_57eavILAbKD5CaKv31zEDY
+                      profunctors-5.1.1@profu_IRUD0QFY0OF0nZWAglFFc5
                       semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO
                       semigroupoids-5.0.0.4@semig_IPk36dXHATB4yo2y5KnSeX
                       stm-2.4.4@stm_C1kFMnPqFjvDhFjgMZGUpr
@@ -63,353 +68,37 @@ family instance modules: base-4.8.1.0:Control.Applicative
                          text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Lazy
                          unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashMap.Base
                          unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashSet
-import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
 import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
 import  -/  base-4.8.1.0:System.IO 5482930cc48b7457dc7c518d05c22912
-import  -/  free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD:Control.Monad.Trans.Free 3c5896e434e7a4cde1144d47cd4b5202
+import  -/  free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD:Control.Comonad.Cofree 4f0811e58b4c87f7a78a0cb1300ad852
+import  -/  free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD:Control.Monad.Free d6f97412cbbbe0e4d4abf1afefeec819
 import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
-import  -/  Adder 90974506101aeb86153265b3cc027eb7
-  exports: bd343f1af4b74f30f3c85e555a698e0b
-  AdderF e6795d042ba5706c10f18f89639a9d2b
-b3bd8fb4f7374247f66814747d99323a
-  $s$fShowFreeF ::
-    GHC.Show.Show
-      (Control.Monad.Trans.Free.FreeF
-         Adder.AdderF
-         GHC.Types.Int
-         (Control.Monad.Trans.Free.FreeT
-            Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ (Control.Monad.Trans.Free.FreeF
-                       Adder.AdderF
-                       GHC.Types.Int
-                       (Control.Monad.Trans.Free.FreeT
-                          Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                  (Control.Monad.Trans.Free.$fShowFreeF_$cshowsPrec
-                     @ Adder.AdderF
-                     @ GHC.Types.Int
-                     @ (Control.Monad.Trans.Free.FreeT
-                          Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                     GHC.Show.$fShowInt
-                     FreeAdder.$s$fShowFreeF1)
-                  (Control.Monad.Trans.Free.$fShowFreeF_$cshow
-                     @ Adder.AdderF
-                     @ GHC.Types.Int
-                     @ (Control.Monad.Trans.Free.FreeT
-                          Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                     GHC.Show.$fShowInt
-                     FreeAdder.$s$fShowFreeF1)
-                  FreeAdder.$s$fShowFreeF_$s$fShowFreeF_$cshowList -}
-f60e698a4eb8b23ce1a53a2a5a41500d
-  $s$fShowFreeF1 ::
-    GHC.Show.Show
-      (Adder.AdderF
-         (Control.Monad.Trans.Free.FreeT
-            Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-  {- Unfolding: (Adder.$fShowAdderF
-                   @ (Control.Monad.Trans.Free.FreeT
-                        Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                   FreeAdder.$s$fShowFreeF2) -}
-c6841d57d52ec65cc6b87fd1c9656cf8
-  $s$fShowFreeF2 ::
-    GHC.Show.Show
-      (Control.Monad.Trans.Free.FreeT
-         Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-  {- Strictness: m -}
-51445158c2ab530013c3f86b4d88213e
-  $s$fShowFreeF_$s$fShowFreeF_$cshowList ::
-    [Control.Monad.Trans.Free.FreeF
-       Adder.AdderF
-       GHC.Types.Int
-       (Control.Monad.Trans.Free.FreeT
-          Adder.AdderF GHC.Base.Maybe GHC.Types.Int)]
-    -> GHC.Show.ShowS
-  {- Arity: 2, Strictness: <S,1*U><L,U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ eta :: [Control.Monad.Trans.Free.FreeF
-                             Adder.AdderF
-                             GHC.Types.Int
-                             (Control.Monad.Trans.Free.FreeT
-                                Adder.AdderF GHC.Base.Maybe GHC.Types.Int)]
-                   eta1 :: GHC.Base.String ->
-                 GHC.Show.showList__
-                   @ (Control.Monad.Trans.Free.FreeF
-                        Adder.AdderF
-                        GHC.Types.Int
-                        (Control.Monad.Trans.Free.FreeT
-                           Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                   (Control.Monad.Trans.Free.$fShowFreeF_$cshowsPrec
-                      @ Adder.AdderF
-                      @ GHC.Types.Int
-                      @ (Control.Monad.Trans.Free.FreeT
-                           Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                      GHC.Show.$fShowInt
-                      FreeAdder.$s$fShowFreeF1
-                      Control.Monad.Trans.Free.$fFoldableFreeF7)
-                   eta
-                   eta1) -}
-203fc18cfd5209d35dc812f19ab4adcc
-  $s$fShowFreeT ::
-    GHC.Show.Show
-      (Control.Monad.Trans.Free.FreeT
-         Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ (Control.Monad.Trans.Free.FreeT
-                       Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                  (Control.Monad.Trans.Free.$fShowFreeT_$cshowsPrec
-                     @ Adder.AdderF
-                     @ GHC.Base.Maybe
-                     @ GHC.Types.Int
-                     FreeAdder.$s$fShowFreeT1)
-                  FreeAdder.$s$fShowFreeT_$s$fShowFreeT_$cshow
-                  FreeAdder.$s$fShowFreeT_$s$fShowFreeT_$cshowList -}
-810af917e66a574fd2cad6871d8d4abc
-  $s$fShowFreeT1 ::
-    GHC.Show.Show
-      (GHC.Base.Maybe
-         (Control.Monad.Trans.Free.FreeF
-            Adder.AdderF
-            GHC.Types.Int
-            (Control.Monad.Trans.Free.FreeT
-               Adder.AdderF GHC.Base.Maybe GHC.Types.Int)))
-  {- Strictness: m,
-     Unfolding: InlineRule (0, True, True)
-                FreeAdder.$s$fShowFreeT_$s$fShowMaybe -}
-670d513da30c6af9f32874524a12101a
-  $s$fShowFreeT2 ::
-    GHC.Show.Show
-      (Control.Monad.Trans.Free.FreeF
-         Adder.AdderF
-         GHC.Types.Int
-         (Control.Monad.Trans.Free.FreeT
-            Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-  {- Strictness: m,
-     Unfolding: InlineRule (0, True, True) FreeAdder.$s$fShowFreeF -}
-2f48fe4fd0151a540fcf8a3c6c97a603
-  $s$fShowFreeT_$s$fShowFreeT_$cshow ::
-    Control.Monad.Trans.Free.FreeT
-      Adder.AdderF GHC.Base.Maybe GHC.Types.Int
-    -> GHC.Base.String
-  {- Arity: 1, Strictness: <L,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ x :: Control.Monad.Trans.Free.FreeT
-                          Adder.AdderF GHC.Base.Maybe GHC.Types.Int ->
-                 GHC.Base.augment
-                   @ GHC.Types.Char
-                   (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
-                    GHC.Base.foldr
-                      @ GHC.Types.Char
-                      @ b
-                      c
-                      n
-                      Control.Monad.Trans.Free.$fShowFreeT1)
-                   (GHC.Show.$fShowMaybe_$cshowsPrec
-                      @ (Control.Monad.Trans.Free.FreeF
-                           Adder.AdderF
-                           GHC.Types.Int
-                           (Control.Monad.Trans.Free.FreeT
-                              Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                      FreeAdder.$s$fShowFreeT2
-                      Control.Monad.Trans.Free.$fReadFreeF5
-                      x `cast`
-                      (Control.Monad.Trans.Free.NTCo:FreeT[0]
-                           <Adder.AdderF>_N <GHC.Base.Maybe>_N <GHC.Types.Int>_N)
-                      (GHC.Types.[] @ GHC.Types.Char))) -}
-7fbb7a66fb374209fdb53b83dbff9227
-  $s$fShowFreeT_$s$fShowFreeT_$cshowList ::
-    [Control.Monad.Trans.Free.FreeT
-       Adder.AdderF GHC.Base.Maybe GHC.Types.Int]
-    -> GHC.Show.ShowS
-  {- Arity: 2, Strictness: <S,1*U><L,U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ ls :: [Control.Monad.Trans.Free.FreeT
-                            Adder.AdderF GHC.Base.Maybe GHC.Types.Int]
-                   s :: GHC.Base.String ->
-                 GHC.Show.showList__
-                   @ (Control.Monad.Trans.Free.FreeT
-                        Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                   (Control.Monad.Trans.Free.$fShowFreeT_$cshowsPrec
-                      @ Adder.AdderF
-                      @ GHC.Base.Maybe
-                      @ GHC.Types.Int
-                      FreeAdder.$s$fShowFreeT1
-                      GHC.Show.shows18)
-                   ls
-                   s) -}
-2b2b71badc5929cdc6a3e8895c8aeb64
-  $s$fShowFreeT_$s$fShowMaybe ::
-    GHC.Show.Show
-      (GHC.Base.Maybe
-         (Control.Monad.Trans.Free.FreeF
-            Adder.AdderF
-            GHC.Types.Int
-            (Control.Monad.Trans.Free.FreeT
-               Adder.AdderF GHC.Base.Maybe GHC.Types.Int)))
-  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun:.
-                  @ (GHC.Base.Maybe
-                       (Control.Monad.Trans.Free.FreeF
-                          Adder.AdderF
-                          GHC.Types.Int
-                          (Control.Monad.Trans.Free.FreeT
-                             Adder.AdderF GHC.Base.Maybe GHC.Types.Int)))
-                  (GHC.Show.$fShowMaybe_$cshowsPrec
-                     @ (Control.Monad.Trans.Free.FreeF
-                          Adder.AdderF
-                          GHC.Types.Int
-                          (Control.Monad.Trans.Free.FreeT
-                             Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                     FreeAdder.$s$fShowFreeT2)
-                  (GHC.Show.$fShowMaybe_$cshow
-                     @ (Control.Monad.Trans.Free.FreeF
-                          Adder.AdderF
-                          GHC.Types.Int
-                          (Control.Monad.Trans.Free.FreeT
-                             Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                     FreeAdder.$s$fShowFreeT2)
-                  FreeAdder.$s$fShowFreeT_$s$fShowMaybe_$cshowList -}
-ff92de1c6dd88c840748c437d42b9d26
-  $s$fShowFreeT_$s$fShowMaybe_$cshowList ::
-    [GHC.Base.Maybe
-       (Control.Monad.Trans.Free.FreeF
-          Adder.AdderF
-          GHC.Types.Int
-          (Control.Monad.Trans.Free.FreeT
-             Adder.AdderF GHC.Base.Maybe GHC.Types.Int))]
-    -> GHC.Show.ShowS
-  {- Arity: 2, Strictness: <S,1*U><L,U>,
-     Unfolding: InlineRule (2, True, False)
-                (\ eta :: [GHC.Base.Maybe
-                             (Control.Monad.Trans.Free.FreeF
-                                Adder.AdderF
-                                GHC.Types.Int
-                                (Control.Monad.Trans.Free.FreeT
-                                   Adder.AdderF GHC.Base.Maybe GHC.Types.Int))]
-                   eta1 :: GHC.Base.String ->
-                 GHC.Show.showList__
-                   @ (GHC.Base.Maybe
-                        (Control.Monad.Trans.Free.FreeF
-                           Adder.AdderF
-                           GHC.Types.Int
-                           (Control.Monad.Trans.Free.FreeT
-                              Adder.AdderF GHC.Base.Maybe GHC.Types.Int)))
-                   (GHC.Show.$fShowMaybe_$cshowsPrec
-                      @ (Control.Monad.Trans.Free.FreeF
-                           Adder.AdderF
-                           GHC.Types.Int
-                           (Control.Monad.Trans.Free.FreeT
-                              Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                      FreeAdder.$s$fShowFreeT2
-                      GHC.Show.shows18)
-                   eta
-                   eta1) -}
-5b0e2a45ccb38152fff6c3ae73e66d41
-  add1 ::
-    GHC.Integer.Type.Integer
-    -> GHC.Base.Maybe
-         (Control.Monad.Trans.Free.FreeF
-            Adder.AdderF
-            GHC.Types.Int
-            (Control.Monad.Trans.Free.FreeT
-               Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-  {- Arity: 1, HasNoCafRefs,
-     Unfolding: (\ ds :: GHC.Integer.Type.Integer -> FreeAdder.add2) -}
-f8188df9f1cf5a540462ee2d773f3448
-  add2 ::
-    GHC.Base.Maybe
-      (Control.Monad.Trans.Free.FreeF
-         Adder.AdderF
-         GHC.Types.Int
-         (Control.Monad.Trans.Free.FreeT
-            Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-  {- HasNoCafRefs, Strictness: m2,
-     Unfolding: (GHC.Base.Just
-                   @ (Control.Monad.Trans.Free.FreeF
-                        Adder.AdderF
-                        GHC.Types.Int
-                        (Control.Monad.Trans.Free.FreeT
-                           Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                   FreeAdder.add4) -}
-e185036ce3799c19e6cef50292d6b38f
-  add3 ::
-    Control.Monad.Trans.Free.FreeT
-      Adder.AdderF GHC.Base.Maybe GHC.Types.Int
-  {- Unfolding: (Control.Monad.Trans.Free.$w$c>>=
-                   @ Adder.AdderF
-                   @ GHC.Base.Maybe
-                   Adder.$fFunctorAdderF
-                   GHC.Base.$fMonadMaybe
-                   @ GHC.Integer.Type.Integer
-                   @ GHC.Types.Int
-                   FreeAdder.add6
-                     `cast`
-                   (Sym (Control.Monad.Trans.Free.NTCo:FreeT[0]
-                             <Adder.AdderF>_N <GHC.Base.Maybe>_N <GHC.Integer.Type.Integer>_N))
-                   FreeAdder.add1
-                     `cast`
-                   (<GHC.Integer.Type.Integer>_R
-                    ->_R Sym (Control.Monad.Trans.Free.NTCo:FreeT[0]
-                                  <Adder.AdderF>_N <GHC.Base.Maybe>_N <GHC.Types.Int>_N))) -}
-9f5616fa6ea2895b9b76031c1515c91e
-  add4 ::
-    Control.Monad.Trans.Free.FreeF
-      Adder.AdderF
-      GHC.Types.Int
-      (Control.Monad.Trans.Free.FreeT
-         Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-  {- HasNoCafRefs, Strictness: m1,
-     Unfolding: (Control.Monad.Trans.Free.Pure
-                   @ Adder.AdderF
-                   @ GHC.Types.Int
-                   @ (Control.Monad.Trans.Free.FreeT
-                        Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                   FreeAdder.add5) -}
-bdd474908e1563ab660e1f347bb6c9df
-  add5 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 4) -}
-b9c7da685136238263827ab711b6e0a4
-  add6 ::
-    GHC.Base.Maybe
-      (Control.Monad.Trans.Free.FreeF
-         Adder.AdderF
-         GHC.Integer.Type.Integer
-         (Control.Monad.Trans.Free.FreeT
-            Adder.AdderF GHC.Base.Maybe GHC.Integer.Type.Integer))
-  {- HasNoCafRefs,
-     Unfolding: (GHC.Base.Just
-                   @ (Control.Monad.Trans.Free.FreeF
-                        Adder.AdderF
-                        GHC.Integer.Type.Integer
-                        (Control.Monad.Trans.Free.FreeT
-                           Adder.AdderF GHC.Base.Maybe GHC.Integer.Type.Integer))
-                   FreeAdder.add7) -}
-32bb75701960c19037639eb57ced405d
-  add7 ::
-    Control.Monad.Trans.Free.FreeF
-      Adder.AdderF
-      GHC.Integer.Type.Integer
-      (Control.Monad.Trans.Free.FreeT
-         Adder.AdderF GHC.Base.Maybe GHC.Integer.Type.Integer)
-  {- HasNoCafRefs,
-     Unfolding: (Control.Monad.Trans.Free.Pure
-                   @ Adder.AdderF
-                   @ GHC.Integer.Type.Integer
-                   @ (Control.Monad.Trans.Free.FreeT
-                        Adder.AdderF GHC.Base.Maybe GHC.Integer.Type.Integer)
-                   FreeAdder.add8) -}
-1f62543cc0bd90faee2678624bc510f3
-  add8 :: GHC.Integer.Type.Integer
-  {- HasNoCafRefs, Unfolding: (__integer 2) -}
-06d3dca7b10445066e2cc18c94800e71
+import  -/  Adder 7566f16b91efbf2b2d97c32c1b29545f
+  exports: 1f16683ed18f8582b063f14cc65effa2
+  AdderF e9e32a58ea80816323683d0867c1afed
+  ClearF ba82fdbdc91b8159663fdd0d7131d2c6
+  CoAdderF e69dd5c75b99f9b467c1c64551b6c2c4
+  CoClearF 5365616e08c8a684eef9ecd9b1cfbd19
+import  -/  Pairing bb307aa69591252441b766e124854981
+  exports: 812e36d2557e2a7131b22cd7b34364a5
+  :*: 5c6a5d9979d940483192869246f3c34c
+  :+: 2eaf9747c4eb3b36c6479b197eb17833
+f1945a3b8b5b03d43869138443d1838f
+  type Adder = Adder.AdderF Pairing.:+: Adder.ClearF
+13e672f17374c55d6f581b8a2169ece1
+  type CoAdder = Adder.CoAdderF Pairing.:*: Adder.CoClearF
+f57884fe54798a0c61b6fcf8750bcdf4
+  type CofreeA a = Control.Comonad.Cofree.Cofree FreeAdder.CoAdder a
+858ab4cf68b5769bb6db653733a579f5
+  type FreeA a = Control.Monad.Free.Free FreeAdder.Adder a
+25543497162e8977eeead837e68a88fc
   mainfreeadder :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 FreeAdder.mainfreeadder1
                   `cast`
                 (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-315f004ff007724093cdef7133dcafd6
+6f6f18b0de4b37b2c97c01380189f5ae
   mainfreeadder1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -417,22 +106,21 @@ b9c7da685136238263827ab711b6e0a4
      Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
                  case GHC.IO.Handle.Text.hPutStr2
                         GHC.IO.Handle.FD.stdout
-                        FreeAdder.mainfreeadder2
+                        FreeAdder.mainfreeadder6
                         GHC.Types.True
                         s of ds1 { (#,#) ipv ipv1 ->
-                 System.IO.print1
-                   @ (Control.Monad.Trans.Free.FreeT
-                        Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                   FreeAdder.$s$fShowFreeF2
-                   FreeAdder.add3
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   FreeAdder.mainfreeadder2
+                   GHC.Types.True
                    ipv }) -}
-dbe1ec84eb6ef13da683923d74d886ea
+d2eca148f12793050c1dfd228beb3df9
   mainfreeadder2 :: [GHC.Types.Char]
   {- Unfolding: (GHC.Types.:
                    @ GHC.Types.Char
                    GHC.Show.shows6
                    FreeAdder.mainfreeadder3) -}
-652235280898d023c751e8dc61a20299
+f4f1582fbad8d5258211b52300902c85
   mainfreeadder3 :: GHC.Base.String
   {- Unfolding: (GHC.Show.showLitString
                    FreeAdder.mainfreeadder5
@@ -444,115 +132,23 @@ dbe1ec84eb6ef13da683923d74d886ea
                    @ GHC.Types.Char
                    GHC.Show.shows6
                    (GHC.Types.[] @ GHC.Types.Char)) -}
-258a1ad94a11009c7356c80b75b4b4c1
+62c957d284dfe4451d7c7c2b86940508
   mainfreeadder5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "test free adder"#) -}
+b6a5dda9287420d2c2ee79674bfb2f4e
+  mainfreeadder6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   FreeAdder.mainfreeadder7) -}
+0495192791a52b1123a130ef955962f9
+  mainfreeadder7 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   FreeAdder.mainfreeadder8
+                   FreeAdder.mainfreeadder4) -}
+4c4cb0992b638a0366b59fd5160ed477
+  mainfreeadder8 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "hello freeadder"#) -}
-"SPEC/FreeAdder $fShowFreeF @ AdderF @ Int @ (FreeT
-                                               AdderF Maybe Int)" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                                                                                  GHC.Types.Int
-                                                                                                                                      $dShow1 :: GHC.Show.Show
-                                                                                                                                                   (Adder.AdderF
-                                                                                                                                                      (Control.Monad.Trans.Free.FreeT
-                                                                                                                                                         Adder.AdderF
-                                                                                                                                                         GHC.Base.Maybe
-                                                                                                                                                         GHC.Types.Int))
-  Control.Monad.Trans.Free.$fShowFreeF @ Adder.AdderF
-                                       @ GHC.Types.Int
-                                       @ (Control.Monad.Trans.Free.FreeT
-                                            Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                                       $dShow
-                                       $dShow1
-  = FreeAdder.$s$fShowFreeF
-"SPEC/FreeAdder $fShowFreeF_$cshowList @ AdderF @ Int @ (FreeT
-                                                          AdderF Maybe Int)" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                                                                                                        GHC.Types.Int
-                                                                                                                                                            $dShow1 :: GHC.Show.Show
-                                                                                                                                                                         (Adder.AdderF
-                                                                                                                                                                            (Control.Monad.Trans.Free.FreeT
-                                                                                                                                                                               Adder.AdderF
-                                                                                                                                                                               GHC.Base.Maybe
-                                                                                                                                                                               GHC.Types.Int))
-  Control.Monad.Trans.Free.$fShowFreeF_$cshowList @ Adder.AdderF
-                                                  @ GHC.Types.Int
-                                                  @ (Control.Monad.Trans.Free.FreeT
-                                                       Adder.AdderF GHC.Base.Maybe GHC.Types.Int)
-                                                  $dShow
-                                                  $dShow1
-  = FreeAdder.$s$fShowFreeF_$s$fShowFreeF_$cshowList
-"SPEC/FreeAdder $fShowFreeT @ AdderF @ Maybe @ Int" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                (GHC.Base.Maybe
-                                                                                   (Control.Monad.Trans.Free.FreeF
-                                                                                      Adder.AdderF
-                                                                                      GHC.Types.Int
-                                                                                      (Control.Monad.Trans.Free.FreeT
-                                                                                         Adder.AdderF
-                                                                                         GHC.Base.Maybe
-                                                                                         GHC.Types.Int)))
-  Control.Monad.Trans.Free.$fShowFreeT @ Adder.AdderF
-                                       @ GHC.Base.Maybe
-                                       @ GHC.Types.Int
-                                       $dShow
-  = FreeAdder.$s$fShowFreeT
-"SPEC/FreeAdder $fShowFreeT_$cshow @ AdderF @ Maybe @ Int" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                       (GHC.Base.Maybe
-                                                                                          (Control.Monad.Trans.Free.FreeF
-                                                                                             Adder.AdderF
-                                                                                             GHC.Types.Int
-                                                                                             (Control.Monad.Trans.Free.FreeT
-                                                                                                Adder.AdderF
-                                                                                                GHC.Base.Maybe
-                                                                                                GHC.Types.Int)))
-  Control.Monad.Trans.Free.$fShowFreeT_$cshow @ Adder.AdderF
-                                              @ GHC.Base.Maybe
-                                              @ GHC.Types.Int
-                                              $dShow
-  = FreeAdder.$s$fShowFreeT_$s$fShowFreeT_$cshow
-"SPEC/FreeAdder $fShowFreeT_$cshowList @ AdderF @ Maybe @ Int" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                           (GHC.Base.Maybe
-                                                                                              (Control.Monad.Trans.Free.FreeF
-                                                                                                 Adder.AdderF
-                                                                                                 GHC.Types.Int
-                                                                                                 (Control.Monad.Trans.Free.FreeT
-                                                                                                    Adder.AdderF
-                                                                                                    GHC.Base.Maybe
-                                                                                                    GHC.Types.Int)))
-  Control.Monad.Trans.Free.$fShowFreeT_$cshowList @ Adder.AdderF
-                                                  @ GHC.Base.Maybe
-                                                  @ GHC.Types.Int
-                                                  $dShow
-  = FreeAdder.$s$fShowFreeT_$s$fShowFreeT_$cshowList
-"SPEC/FreeAdder $fShowMaybe @ (FreeF
-                                AdderF Int (FreeT AdderF Maybe Int))" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                                                                       (Control.Monad.Trans.Free.FreeF
-                                                                                                                                          Adder.AdderF
-                                                                                                                                          GHC.Types.Int
-                                                                                                                                          (Control.Monad.Trans.Free.FreeT
-                                                                                                                                             Adder.AdderF
-                                                                                                                                             GHC.Base.Maybe
-                                                                                                                                             GHC.Types.Int))
-  GHC.Show.$fShowMaybe @ (Control.Monad.Trans.Free.FreeF
-                            Adder.AdderF
-                            GHC.Types.Int
-                            (Control.Monad.Trans.Free.FreeT
-                               Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                       $dShow
-  = FreeAdder.$s$fShowFreeT_$s$fShowMaybe
-"SPEC/FreeAdder $fShowMaybe_$cshowList @ (FreeF
-                                           AdderF Int (FreeT AdderF Maybe Int))" [ALWAYS] forall $dShow :: GHC.Show.Show
-                                                                                                                                                             (Control.Monad.Trans.Free.FreeF
-                                                                                                                                                                Adder.AdderF
-                                                                                                                                                                GHC.Types.Int
-                                                                                                                                                                (Control.Monad.Trans.Free.FreeT
-                                                                                                                                                                   Adder.AdderF
-                                                                                                                                                                   GHC.Base.Maybe
-                                                                                                                                                                   GHC.Types.Int))
-  GHC.Show.$fShowMaybe_$cshowList @ (Control.Monad.Trans.Free.FreeF
-                                       Adder.AdderF
-                                       GHC.Types.Int
-                                       (Control.Monad.Trans.Free.FreeT
-                                          Adder.AdderF GHC.Base.Maybe GHC.Types.Int))
-                                  $dShow
-  = FreeAdder.$s$fShowFreeT_$s$fShowMaybe_$cshowList
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:

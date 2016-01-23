@@ -1,37 +1,38 @@
+{-# LANGUAGE MultiParamTypeClasses, TypeOperators #-}
+
 module Main where
 
--- add some comment plus some other comment
-
-import MyEnv
-
-import Control.Comonad.Identity
-import Control.Comonad.Trans.Store
-import Control.Comonad.Trans.Coiter
-import Control.Comonad.Env
-import Data.Foldable
-
 import Adder
+import Pairing
 import FreeAdder
 import CoFreeAdder
 
-testi :: CoiterT (Env Char) Int
-testi = unfold ( extract . fmap (+1) ) (env 'a' 1)
+import Control.Monad.Free
+import Control.Comonad.Cofree
 
-tests :: CoiterT (MyEnv Char)  String
-tests = unfold ( \ wd ->
-  let smb = show ( myask wd )
-  in extract ( fmap (++smb) wd) ) (MyEnv 'a' "test")
+type AdderH = AdderF :+: ClearF :+: TotalF
+type CoAdderH = CoAdderF :*: CoClearF :*: CoTotalF
 
-test :: CoiterT (MyEnv Char) (Int , String)
-test = tests =>> (\ wd ->
-  let smb = myask ( runCoiterT wd )
-  in (length ( extract wd) , extract wd ++ show smb))
+type FreeA a = Free AdderH a
+type CofreeA a = Cofree CoAdderH a
 
+add :: Int -> FreeA ()
+add n = liftF (LeftF (LeftF (Add n ())))
 
-rs = find ((> 100) . fst) test
+total :: FreeA Int
+total = liftF (RightF (Total id))
+
+add3 :: FreeA Int
+add3 = do
+    add 1
+    add 2
+    add 3
+    total
+
+interpret :: FreeA Int -> CofreeA Int -> Int
+interpret = undefined
 
 main :: IO ()
 main = do
   print "hello world"
   mainfreeadder
-  maincofreeadder

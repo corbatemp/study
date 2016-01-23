@@ -1,37 +1,50 @@
+{-# LANGUAGE MultiParamTypeClasses, TypeOperators #-}
+
 module FreeAdder where
 
-import Control.Monad.Trans.Free
-import Control.Monad.State.Lazy
-
-
 import Adder
+import Pairing
 
-type Adder a = FreeT AdderF Maybe a
+import Control.Comonad.Trans.Cofree
+import Control.Monad.Free
+import Control.Comonad.Store
 
-add3 :: Adder Int
+coAd :: String -> Int -> String
+coAd s n = s ++ show n
+
+coCl :: String -> String
+coCl _ = "clear"
+
+coTo :: String -> (Int, String)
+coTo s = (length s, s)
+
+mkCoAd :: CofreeT CoAdF (Store String) ()
+mkCoAd = coiterT next start where
+  next s = undefined --CoAd (coAd s) (coCl s) (coTo s)
+  start = undefined --"start"
+
+instance  Pairing AdF CoAdF where
+  pair p (Ad n k) (CoAd a _ _) = p k (a n)
+  pair p (Cl k) (CoAd _ c _) = p k c
+  pair p (To f) (CoAd _ _ t) = p ( f (fst t)) (snd t)
+
+
+add3 :: Free AdF Int
 add3 = do
-  liftF (Add 1 ())
----  liftF (Clear ())
-  liftF (Add 2 ())
-  liftF (Add 3 ())
-  liftF (Total id)
+  liftF (Ad 1 ())
+  liftF (Ad 2 ())
+  liftF (Cl ())
+  liftF (Ad 3 ())
+  v <- liftF (To id)
+  liftF (Ad v ())
+  liftF (Ad v ())
+  liftF (To id)
+--  liftF (Cl)
 
-freeinter :: Adder Int -> State Int Int
-freeinter m = case runFreeT m of
-      Just (Pure n) -> return n
-      Just (Free (Add n k)) -> do
-        v <- get
-        put (v + n)
-        freeinter k
-      Just (Free (Total g)) -> do
-        v <- get
-        put v
-        freeinter (g (v + 3))
+testp = pair ( \ _ b -> b ) add3 mkCoAd
 
 mainfreeadder :: IO ()
 mainfreeadder = do
   print "hello freeadder"
-  print $ execState ( freeinter add3 ) 0
-  print $ evalState ( freeinter add3 ) 0
-
-  -- print add3
+  print "test free adder"
+  print testp

@@ -21,6 +21,20 @@
   (major1) == 4 && (major2) <  12 || \
   (major1) == 4 && (major2) == 12 && (minor) <= 1)
 
+/* package mtl-2.2.1 */
+#define VERSION_mtl "2.2.1"
+#define MIN_VERSION_mtl(major1,major2,minor) (\
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  2 || \
+  (major1) == 2 && (major2) == 2 && (minor) <= 1)
+
+/* package transformers-0.4.2.0 */
+#define VERSION_transformers "0.4.2.0"
+#define MIN_VERSION_transformers(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  4 || \
+  (major1) == 0 && (major2) == 4 && (minor) <= 2)
+
 /* tool alex-3.1.4 */
 #define TOOL_VERSION_alex "3.1.4"
 #define MIN_TOOL_VERSION_alex(major1,major2,minor) (\
@@ -105,5 +119,5 @@
   (major1) == 2 && (major2) <  22 || \
   (major1) == 2 && (major2) == 22 && (minor) <= 0)
 
-#define CURRENT_PACKAGE_KEY "hello_3hqdZXWDOvmH2bABszdAdH"
+#define CURRENT_PACKAGE_KEY "hello_DpO6QLemaln1SI9nzNf3KH"
 

@@ -1,0 +1,452 @@
+
+==================== FINAL INTERFACE ====================
+2016-01-21 05:59:46.95487 UTC
+
+interface main@main:Pairing 7102
+  interface hash: a032879ace63107f20f678b54819aae1
+  ABI hash: bb307aa69591252441b766e124854981
+  export-list hash: 812e36d2557e2a7131b22cd7b34364a5
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: 376bf446875441d9b121663599b112a2
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Pairing.mainpair
+  Pairing.:*:{Pairing.:*:}
+  Pairing.:+:{Pairing.LeftF Pairing.RightF}
+  Pairing.Pairing{Pairing.pair}
+module dependencies: Adder
+package dependencies: StateVar-1.1.0.1@State_6K4a3UqSdqh6lGAm1wlr9s
+                      array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ base-4.8.1.0*
+                      base-orphans-0.4.4@baseo_E55c3OEBLyu45sND7mOuE9
+                      bifunctors-5@bifun_6cWzSBWZD9ID5wcfOFIydn
+                      binary-0.7.5.0@binar_IvYoLp9H6Xy3zEH13MmZwd
+                      bytestring-0.10.6.0@bytes_6elQVSg5cWdFrvRnfxTUrH
+                      comonad-4.2.7.2@comon_EsayKmuIGPJJdbMoBEcxRq
+                      containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN
+                      contravariant-1.3.3@contr_1HGRfJ7yos72LK91k3YDgI
+                      deepseq-1.4.1.1@deeps_LbCWUlehDDeLxurARKDH5o
+                      distributive-0.4.4@distr_IiTFZxvjHzA0FvKz3AU35Q
+                      exceptions-0.8.0.2@excep_8GsEeHgaIks3pVGk6GaELJ
+                      free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD ghc-prim-0.4.0.0
+                      hashable-1.2.3.3@hasha_2GTZqecVp8NJZrNuKzGxfy integer-gmp-1.0.0.0
+                      mtl-2.2.1@mtl_KMpng31YRYc5JfMWFZ3FCU
+                      prelude-extras-0.4.0.2@prelu_57eavILAbKD5CaKv31zEDY
+                      profunctors-5.1.1@profu_IRUD0QFY0OF0nZWAglFFc5
+                      semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO
+                      semigroupoids-5.0.0.4@semig_IPk36dXHATB4yo2y5KnSeX
+                      stm-2.4.4@stm_C1kFMnPqFjvDhFjgMZGUpr
+                      tagged-0.8.1@tagge_6Tf46oJAk552xT73wGffBW
+                      text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh
+                      transformers-0.4.2.0@trans_3eG64VdP2vzGjP6wJiCp5X
+                      unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a
+orphans: base-4.8.1.0:GHC.Base base-4.8.1.0:GHC.Float
+         binary-0.7.5.0@binar_IvYoLp9H6Xy3zEH13MmZwd:Data.Binary.Generic
+         bytestring-0.10.6.0@bytes_6elQVSg5cWdFrvRnfxTUrH:Data.ByteString.Builder
+         hashable-1.2.3.3@hasha_2GTZqecVp8NJZrNuKzGxfy:Data.Hashable.Generic
+         stm-2.4.4@stm_C1kFMnPqFjvDhFjgMZGUpr:Control.Monad.STM
+         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text
+         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Lazy
+         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Show
+         transformers-0.4.2.0@trans_3eG64VdP2vzGjP6wJiCp5X:Control.Monad.Trans.Error
+family instance modules: base-4.8.1.0:Control.Applicative
+                         base-4.8.1.0:Data.Either base-4.8.1.0:Data.Functor.Identity
+                         base-4.8.1.0:Data.Monoid base-4.8.1.0:Data.Type.Equality
+                         base-4.8.1.0:Data.Void base-4.8.1.0:GHC.Exts
+                         base-4.8.1.0:GHC.Generics
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.IntMap.Base
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.IntSet.Base
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.Map.Base
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.Sequence
+                         containers-0.5.6.2@conta_LKCPrTJwOTOLk4OU37YmeN:Data.Set.Base
+                         semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO:Data.List.NonEmpty
+                         semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO:Data.Semigroup
+                         tagged-0.8.1@tagge_6Tf46oJAk552xT73wGffBW:Data.Tagged
+                         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text
+                         text-1.2.1.3@text_1l1AN4I48k37RaQ6fm6CEh:Data.Text.Lazy
+                         unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashMap.Base
+                         unordered-containers-0.2.5.1@unord_7E41cj9RvqSJeZ4jSnbs1a:Data.HashSet
+import  -/  base-4.8.1.0:Data.Functor.Identity 3704ae224c8fe000710217d4c9932294
+import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
+import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
+import  -/  base-4.8.1.0:System.IO 5482930cc48b7457dc7c518d05c22912
+import  -/  comonad-4.2.7.2@comon_EsayKmuIGPJJdbMoBEcxRq:Control.Comonad.Identity f573e847977c14668ab2a035357659d6
+import  -/  free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD:Control.Comonad.Cofree 4f0811e58b4c87f7a78a0cb1300ad852
+import  -/  free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD:Control.Monad.Free d6f97412cbbbe0e4d4abf1afefeec819
+import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
+import  -/  Adder 7566f16b91efbf2b2d97c32c1b29545f
+  exports: 1f16683ed18f8582b063f14cc65effa2
+5c6a5d9979d940483192869246f3c34c
+  $fFunctor:*: ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    GHC.Base.Functor (f Pairing.:*: g)
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      $dFunctor :: GHC.Base.Functor f
+                      $dFunctor1 :: GHC.Base.Functor g.
+                  @ (f Pairing.:*: g)
+                  (Pairing.$fFunctor:*:_$cfmap @ f @ g $dFunctor $dFunctor1)
+                  (Pairing.$fFunctor:*:_$c<$ @ f @ g $dFunctor $dFunctor1) -}
+5c6a5d9979d940483192869246f3c34c
+  $fFunctor:*:_$c<$ ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. a -> (Pairing.:*:) f g b -> (Pairing.:*:) f g a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><L,U><S,1*U(U,U)>m,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   w :: GHC.Base.Functor f
+                   w1 :: GHC.Base.Functor g
+                   @ a
+                   @ b
+                   w2 :: a
+                   w3 :: (Pairing.:*:) f g b ->
+                 case w3 of ww { Pairing.:*: ww1 ww2 ->
+                 let {
+                   f1 :: b -> a
+                     {- Arity: 1, Strictness: <L,A>,
+                        Unfolding: InlineRule (1, True, True) (\ ds :: b -> w2) -}
+                   = \ ds :: b -> w2
+                 } in
+                 Pairing.:*:
+                   @ f
+                   @ g
+                   @ a
+                   (GHC.Base.fmap @ f w @ b @ a f1 ww1)
+                   (GHC.Base.fmap @ g w1 @ b @ a f1 ww2) }) -}
+5c6a5d9979d940483192869246f3c34c
+  $fFunctor:*:_$cfmap ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. (a -> b) -> (Pairing.:*:) f g a -> (Pairing.:*:) f g b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><L,U><S,1*U(U,U)>m,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   $dFunctor :: GHC.Base.Functor f
+                   $dFunctor1 :: GHC.Base.Functor g
+                   @ a
+                   @ b
+                   f1 :: a -> b
+                   ds :: (Pairing.:*:) f g a ->
+                 case ds of wild { Pairing.:*: x y ->
+                 Pairing.:*:
+                   @ f
+                   @ g
+                   @ b
+                   (GHC.Base.fmap @ f $dFunctor @ a @ b f1 x)
+                   (GHC.Base.fmap @ g $dFunctor1 @ a @ b f1 y) }) -}
+2eaf9747c4eb3b36c6479b197eb17833
+  $fFunctor:+: ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    GHC.Base.Functor (f Pairing.:+: g)
+  DFunId[0]
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><L,U(C(C1(U)),A)>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      $dFunctor :: GHC.Base.Functor f
+                      $dFunctor1 :: GHC.Base.Functor g.
+                  @ (f Pairing.:+: g)
+                  (Pairing.$fFunctor:+:_$cfmap @ f @ g $dFunctor $dFunctor1)
+                  (Pairing.$fFunctor:+:_$c<$ @ f @ g $dFunctor $dFunctor1) -}
+2eaf9747c4eb3b36c6479b197eb17833
+  $fFunctor:+:_$c<$ ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. a -> (Pairing.:+:) f g b -> (Pairing.:+:) f g a
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><L,U><S,1*U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   $dFunctor :: GHC.Base.Functor f
+                   $dFunctor1 :: GHC.Base.Functor g
+                   @ a
+                   @ b
+                   eta :: a
+                   eta1 :: (Pairing.:+:) f g b ->
+                 Pairing.$fFunctor:+:_$cfmap
+                   @ f
+                   @ g
+                   $dFunctor
+                   $dFunctor1
+                   @ b
+                   @ a
+                   (\ ds :: b -> eta)
+                   eta1) -}
+2eaf9747c4eb3b36c6479b197eb17833
+  $fFunctor:+:_$cfmap ::
+    (GHC.Base.Functor f, GHC.Base.Functor g) =>
+    forall a b. (a -> b) -> (Pairing.:+:) f g a -> (Pairing.:+:) f g b
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,1*U(1*C1(C1(U)),A)><L,1*U(1*C1(C1(U)),A)><L,U><S,1*U>,
+     Unfolding: (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   $dFunctor :: GHC.Base.Functor f
+                   $dFunctor1 :: GHC.Base.Functor g
+                   @ a
+                   @ b
+                   f1 :: a -> b
+                   ds :: (Pairing.:+:) f g a ->
+                 case ds of wild {
+                   Pairing.LeftF x
+                   -> Pairing.LeftF
+                        @ f
+                        @ g
+                        @ b
+                        (GHC.Base.fmap @ f $dFunctor @ a @ b f1 x)
+                   Pairing.RightF x
+                   -> Pairing.RightF
+                        @ f
+                        @ g
+                        @ b
+                        (GHC.Base.fmap @ g $dFunctor1 @ a @ b f1 x) }) -}
+4a4be38f821a0c6ba94a187b5ba4d123
+  $fPairing:+::*: ::
+    (GHC.Base.Functor (f Pairing.:+: g),
+     GHC.Base.Functor (f' Pairing.:*: g'), Pairing.Pairing f f',
+     Pairing.Pairing g g') =>
+    Pairing.Pairing (f Pairing.:+: g) (f' Pairing.:*: g')
+  DFunId[2]
+  {- Arity: 4, HasNoCafRefs,
+     Strictness: <L,U><L,U><L,U(A,A,C(C1(C1(U))))><L,U(A,A,C(C1(C1(U))))>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      @ (f' :: * -> *)
+                      @ (g' :: * -> *)
+                      $dFunctor :: GHC.Base.Functor (f Pairing.:+: g)
+                      $dFunctor1 :: GHC.Base.Functor (f' Pairing.:*: g')
+                      $dPairing :: Pairing.Pairing f f'
+                      $dPairing1 :: Pairing.Pairing g g'.
+                  @ (f Pairing.:+: g)
+                  @ (f' Pairing.:*: g')
+                  $dFunctor
+                  $dFunctor1
+                  (Pairing.$fPairing:+::*:_$cpair
+                     @ f
+                     @ g
+                     @ f'
+                     @ g'
+                     $dFunctor
+                     $dFunctor1
+                     $dPairing
+                     $dPairing1) -}
+4a4be38f821a0c6ba94a187b5ba4d123
+  $fPairing:+::*:_$cpair ::
+    (GHC.Base.Functor (f Pairing.:+: g),
+     GHC.Base.Functor (f' Pairing.:*: g'), Pairing.Pairing f f',
+     Pairing.Pairing g g') =>
+    forall a b r.
+    (a -> b -> r) -> (Pairing.:+:) f g a -> (Pairing.:*:) f' g' b -> r
+  {- Arity: 7, HasNoCafRefs,
+     Strictness: <L,A><L,A><L,1*U(A,A,1*C1(C1(C1(U))))><L,1*U(A,A,1*C1(C1(C1(U))))><L,U><S,1*U><S,1*U(U,U)>,
+     Unfolding: InlineRule (7, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   @ (f' :: * -> *)
+                   @ (g' :: * -> *)
+                   $dFunctor :: GHC.Base.Functor (f Pairing.:+: g)
+                   $dFunctor1 :: GHC.Base.Functor (f' Pairing.:*: g')
+                   $dPairing :: Pairing.Pairing f f'
+                   $dPairing1 :: Pairing.Pairing g g'
+                   @ a
+                   @ b
+                   @ r
+                   p :: a -> b -> r
+                   ds :: (Pairing.:+:) f g a
+                   ds1 :: (Pairing.:*:) f' g' b ->
+                 case ds of wild {
+                   Pairing.LeftF a1
+                   -> case ds1 of wild1 { Pairing.:*: b1 ds2 ->
+                      Pairing.pair @ f @ f' $dPairing @ a @ b @ r p a1 b1 }
+                   Pairing.RightF a1
+                   -> case ds1 of wild1 { Pairing.:*: ds2 c ->
+                      Pairing.pair @ g @ g' $dPairing1 @ a @ b @ r p a1 c } }) -}
+4a4be38f821a0c6ba94a187b5ba4d123
+  $fPairingFreeCofree ::
+    (GHC.Base.Functor (Control.Monad.Free.Free f),
+     GHC.Base.Functor (Control.Comonad.Cofree.Cofree g),
+     Pairing.Pairing f g) =>
+    Pairing.Pairing
+      (Control.Monad.Free.Free f) (Control.Comonad.Cofree.Cofree g)
+  DFunId[2]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U><L,U><L,U(A,A,C(C1(C1(U))))>m,
+     Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun: @ (f :: * -> *)
+                      @ (g :: * -> *)
+                      $dFunctor :: GHC.Base.Functor (Control.Monad.Free.Free f)
+                      $dFunctor1 :: GHC.Base.Functor (Control.Comonad.Cofree.Cofree g)
+                      $dPairing :: Pairing.Pairing f g.
+                  @ (Control.Monad.Free.Free f)
+                  @ (Control.Comonad.Cofree.Cofree g)
+                  $dFunctor
+                  $dFunctor1
+                  (Pairing.$fPairingFreeCofree_$cpair
+                     @ f
+                     @ g
+                     $dFunctor
+                     $dFunctor1
+                     $dPairing) -}
+4a4be38f821a0c6ba94a187b5ba4d123
+  $fPairingFreeCofree_$cpair ::
+    (GHC.Base.Functor (Control.Monad.Free.Free f),
+     GHC.Base.Functor (Control.Comonad.Cofree.Cofree g),
+     Pairing.Pairing f g) =>
+    forall a b r.
+    (a -> b -> r)
+    -> Control.Monad.Free.Free f a
+    -> Control.Comonad.Cofree.Cofree g b
+    -> r
+  {- Arity: 6, HasNoCafRefs,
+     Strictness: <L,A><L,A><L,U(A,A,C(C1(C1(U))))><L,C(C1(U))><S,1*U><S,1*U(U,U)>,
+     Inline: INLINE[0],
+     Unfolding: InlineRule (6, True, False)
+                (\ @ (f :: * -> *)
+                   @ (g :: * -> *)
+                   w :: GHC.Base.Functor (Control.Monad.Free.Free f)
+                   w1 :: GHC.Base.Functor (Control.Comonad.Cofree.Cofree g)
+                   w2 :: Pairing.Pairing f g
+                   @ a
+                   @ b
+                   @ r
+                   w3 :: a -> b -> r
+                   w4 :: Control.Monad.Free.Free f a
+                   w5 :: Control.Comonad.Cofree.Cofree g b ->
+                 case w5 of ww { Control.Comonad.Cofree.:< ww1 ww2 ->
+                 Pairing.$w$cpair @ f @ g w2 @ a @ b @ r w3 w4 ww1 ww2 }) -}
+4a4be38f821a0c6ba94a187b5ba4d123
+  $fPairingIdentityIdentity ::
+    Pairing.Pairing
+      Data.Functor.Identity.Identity Data.Functor.Identity.Identity
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Data.Functor.Identity.Identity
+                  @ Data.Functor.Identity.Identity
+                  Data.Functor.Identity.$fFunctorIdentity
+                  Data.Functor.Identity.$fFunctorIdentity
+                  Pairing.$fPairingIdentityIdentity_$cpair -}
+1ec068501cb5936bc60aee11376a6793
+  $fPairingIdentityIdentity_$cpair ::
+    (a -> b -> r)
+    -> Data.Functor.Identity.Identity a
+    -> Data.Functor.Identity.Identity b
+    -> r
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <C(C(S)),1*C1(C1(U))><L,U><L,U>,
+     Unfolding: InlineRule (3, True, True)
+                (\ @ a
+                   @ b
+                   @ r
+                   f :: a -> b -> r
+                   ds :: Data.Functor.Identity.Identity a
+                   ds1 :: Data.Functor.Identity.Identity b ->
+                 f ds `cast` (Data.Functor.Identity.NTCo:Identity[0] <a>_R)
+                   ds1 `cast` (Data.Functor.Identity.NTCo:Identity[0] <b>_R)) -}
+4a4be38f821a0c6ba94a187b5ba4d123
+  $w$cpair ::
+    Pairing.Pairing f g =>
+    forall a b r.
+    (a -> b -> r)
+    -> Control.Monad.Free.Free f a
+    -> b
+    -> g (Control.Comonad.Cofree.Cofree g b)
+    -> r
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <L,U(A,A,C(C1(C1(U))))><L,C(C1(U))><S,1*U><L,U><L,U>,
+     Inline: [0] -}
+5c6a5d9979d940483192869246f3c34c
+  type role (:*:) representational representational nominal
+  data (:*:) (f :: * -> *) (g :: * -> *) x = (f x) :*: (g x)
+2eaf9747c4eb3b36c6479b197eb17833
+  type role (:+:) representational representational nominal
+  data (:+:) (f :: * -> *) (g :: * -> *) x
+    = LeftF (f x) | RightF (g x)
+4a4be38f821a0c6ba94a187b5ba4d123
+  class (GHC.Base.Functor f, GHC.Base.Functor g) =>
+        Pairing (f :: * -> *) (g :: * -> *) where
+    pair :: (a -> b -> r) -> f a -> g b -> r
+72b7dbab86166a27b870fb5d0f2f192b
+  mainpair :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: InlineRule (0, True, True)
+                Pairing.mainpair1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
+3fafdcdfcdf499be4a5fc62e5ab72697
+  mainpair1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <L,U>,
+     Unfolding: (\ s :: GHC.Prim.State# GHC.Prim.RealWorld[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        Pairing.mainpair6
+                        GHC.Types.True
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   Pairing.mainpair2
+                   GHC.Types.True
+                   ipv }) -}
+ffab120aac1bf8ab3a8ae1d72b1151b5
+  mainpair2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   Pairing.mainpair3) -}
+9eb8eb1464a05f0b02b1aea9750fe5af
+  mainpair3 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   Pairing.mainpair5
+                   Pairing.mainpair4) -}
+20d1833a8465b46531fcf3e713995953
+  mainpair4 :: [GHC.Types.Char]
+  {- HasNoCafRefs,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+7c62ed60cef2051809145b273eeaaca8
+  mainpair5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "test"#) -}
+17326cc18aacef3e4ba4cc918d927340
+  mainpair6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Types.Char
+                   GHC.Show.shows6
+                   Pairing.mainpair7) -}
+68e544efd5404104ba6d5e4b0ecaec7e
+  mainpair7 :: GHC.Base.String
+  {- Unfolding: (GHC.Show.showLitString
+                   Pairing.mainpair8
+                   Pairing.mainpair4) -}
+7d1831fe9129090aa16940057c38fd1b
+  mainpair8 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "mainpair"#) -}
+instance GHC.Base.Functor [Pairing.:*:] = Pairing.$fFunctor:*:
+instance GHC.Base.Functor [Pairing.:+:] = Pairing.$fFunctor:+:
+instance Pairing.Pairing [Pairing.:+:, Pairing.:*:]
+  = Pairing.$fPairing:+::*:
+instance Pairing.Pairing [Control.Monad.Free.Free,
+                          Control.Comonad.Cofree.Cofree]
+  = Pairing.$fPairingFreeCofree
+instance Pairing.Pairing [Data.Functor.Identity.Identity,
+                          Data.Functor.Identity.Identity]
+  = Pairing.$fPairingIdentityIdentity
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+

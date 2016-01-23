@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2016-01-10 02:33:44.4700124 UTC
+2016-01-21 06:03:46.0696351 UTC
 
 interface main@main:Main 7102
-  interface hash: 55bcaea4fbaf0befa2c8fba82a6df184
-  ABI hash: d60d2517faa4af7cde869ab9e9f6c270
-  export-list hash: 4424f314bfa76ebe6ffc8c6377170e85
+  interface hash: 8ddd7edec0a962d40acc46d7fda9228d
+  ABI hash: c50d1d233bf6cfe7ed74168f3a24c91d
+  export-list hash: 0139f31fb341a08520629739690690ae
   orphan hash: cc2e4d6ef32a845fdab9f61004db0aa4
   flag hash: a4d9a32836c2d5e0882d4aca754a7c39
   sig of: Nothing
@@ -14,12 +14,13 @@ interface main@main:Main 7102
 exports:
   Main.main
   Main.rs
-  Main.test
   Main.testi
   Main.tests
-module dependencies: Adder FreeAdder MyEnv
+  Main.testw
+module dependencies: Adder CoFreeAdder FreeAdder MyEnv Pairing
 package dependencies: StateVar-1.1.0.1@State_6K4a3UqSdqh6lGAm1wlr9s
                       array-0.5.1.0@array_E0sTtauuKsGDLZoT7lTbgZ base-4.8.1.0*
+                      base-orphans-0.4.4@baseo_E55c3OEBLyu45sND7mOuE9
                       bifunctors-5@bifun_6cWzSBWZD9ID5wcfOFIydn
                       binary-0.7.5.0@binar_IvYoLp9H6Xy3zEH13MmZwd
                       bytestring-0.10.6.0@bytes_6elQVSg5cWdFrvRnfxTUrH
@@ -33,6 +34,7 @@ package dependencies: StateVar-1.1.0.1@State_6K4a3UqSdqh6lGAm1wlr9s
                       hashable-1.2.3.3@hasha_2GTZqecVp8NJZrNuKzGxfy integer-gmp-1.0.0.0
                       mtl-2.2.1@mtl_KMpng31YRYc5JfMWFZ3FCU
                       prelude-extras-0.4.0.2@prelu_57eavILAbKD5CaKv31zEDY
+                      profunctors-5.1.1@profu_IRUD0QFY0OF0nZWAglFFc5
                       semigroups-0.16.2.2@semig_509rjK42Yeb8JAwFst5KmO
                       semigroupoids-5.0.0.4@semig_IPk36dXHATB4yo2y5KnSeX
                       stm-2.4.4@stm_C1kFMnPqFjvDhFjgMZGUpr
@@ -81,16 +83,20 @@ import  -/  comonad-4.2.7.2@comon_EsayKmuIGPJJdbMoBEcxRq:Control.Comonad.Trans.S
 import  -/  free-4.12.1@free_2EJeoNML59VIyuzJGfHGjD:Control.Comonad.Trans.Coiter 68673b977919e892f84c3f7da12112f1
 import  -/  ghc-prim-0.4.0.0:GHC.Classes e1f4ff80f7b5262008a595d29986fb18
 import  -/  ghc-prim-0.4.0.0:GHC.Types 6b27fb3fdbd0e3f0925a4496c66513bb
-import  -/  Adder 90974506101aeb86153265b3cc027eb7
-  exports: bd343f1af4b74f30f3c85e555a698e0b
-import  -/  FreeAdder d42271be6a0229136fd1aad2bbb38ed1
-  exports: 360fff3b78a8a5b100eb96f1d5c0d515
-  mainfreeadder 06d3dca7b10445066e2cc18c94800e71
+import  -/  Adder 7566f16b91efbf2b2d97c32c1b29545f
+  exports: 1f16683ed18f8582b063f14cc65effa2
+import  -/  CoFreeAdder c3432936ebfbbe8cc988faa32e5575ab
+  exports: d7d803e4e3578bc59fb332ab9857eca5
+import  -/  FreeAdder 71b0ce1bb7bba0befdf6847110b6f20f
+  exports: 02ad9d0c3e45f39cd4e777f7aec1b370
+  mainfreeadder 25543497162e8977eeead837e68a88fc
 import  -/  MyEnv 9878ad38a6f6dfaa7a97dbc8436b3e49
   exports: b043bba5d347aa10650b44d4df598bb7
   MyEnv e1c65235a6ca4d636618b12cdf5a9910
   MyEnv dd869ea5751e2ebfa1228dd9f6abbef4
   myask 17818c9b13263e2f179c31cba7ab5ce1
+import  -/  Pairing bb307aa69591252441b766e124854981
+  exports: 812e36d2557e2a7131b22cd7b34364a5
 d57a14c95bcc4df9db27708966a9019f
   $s$fComonadCoiterT2 ::
     (MyEnv.MyEnv GHC.Types.Char a -> b)
@@ -261,12 +267,12 @@ ce69b543de6a754cf54746ad2ad63f61
                   @ (Control.Comonad.Trans.Env.EnvT e Data.Functor.Identity.Identity)
                   (Main.$s$fComonadEnvT5 @ e)
                   (Main.$s$fComonadEnvT4 @ e) -}
-f2b73d55fc6edc2b23e8fc2461726855
+f45f5ad7086a5c6acddf4bebe7bdd233
   main :: GHC.Types.IO ()
   {- Arity: 1, Strictness: <L,U>,
      Unfolding: InlineRule (0, True, True)
                 Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R)) -}
-ff8fad7651140b5cbb4938bae9976649
+c963d12fe2a99b96c605c030c4ae64ed
   main1 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -297,7 +303,7 @@ ecdee84562df037d1ce3c4bd0e87ae9b
 6b0589b41530734b52246f99bb73a5f9
   main5 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString# "hello world"#) -}
-48e53999dbb4b502b27d944827616e12
+6c5fc32b4adc0ce90a2d835e697f723e
   main6 ::
     GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
@@ -305,15 +311,15 @@ ecdee84562df037d1ce3c4bd0e87ae9b
      Unfolding: (GHC.TopHandler.runMainIO1
                    @ ()
                    Main.main1 `cast` (Sym (GHC.Types.NTCo:IO[0] <()>_R))) -}
-4c7ab5562e23d9c168d47f08537f55b8
+8feb0b2f0e34f8ed184360ed9d638c5d
   rs :: GHC.Base.Maybe (GHC.Types.Int, GHC.Base.String)
   {- Unfolding: InlineRule (0, True, True)
                 Main.rs1
                   `cast`
                 (Data.Monoid.NTCo:First[0] <(GHC.Types.Int, GHC.Base.String)>_N) -}
-c339e12cb2c17a11687f9e2b2c4e130d
+54010b88dbda4af137a101aa5ea5bc06
   rs1 :: Data.Monoid.First (GHC.Types.Int, GHC.Base.String)
-  {- Unfolding: (Main.rs2 Main.test) -}
+  {- Unfolding: (Main.rs2 Main.testw) -}
 be0553f2b5e6e8a6dd98cc855d70a401
   rs2 ::
     Control.Comonad.Trans.Coiter.CoiterT
@@ -345,56 +351,6 @@ be0553f2b5e6e8a6dd98cc855d70a401
                    -> GHC.Base.Nothing @ (GHC.Types.Int, GHC.Base.String)
                    GHC.Types.True
                    -> GHC.Base.Just @ (GHC.Types.Int, GHC.Base.String) wild } } }) -}
-e415c8549b3e81e9c69229f8116db85a
-  test ::
-    Control.Comonad.Trans.Coiter.CoiterT
-      (MyEnv.MyEnv GHC.Types.Char) (GHC.Types.Int, GHC.Base.String)
-  {- Unfolding: (Main.test1 Main.tests) -}
-357ac810bef6fb79b8cd54522f46eab2
-  test1 ::
-    Control.Comonad.Trans.Coiter.CoiterT
-      (MyEnv.MyEnv GHC.Types.Char) GHC.Base.String
-    -> Control.Comonad.Trans.Coiter.CoiterT
-         (MyEnv.MyEnv GHC.Types.Char) (GHC.Types.Int, GHC.Base.String)
-  {- Unfolding: (Control.Comonad.Trans.Coiter.$w$cextend
-                   @ (MyEnv.MyEnv GHC.Types.Char)
-                   Main.$s$fComonadCoiterT_$s$fComonadMyEnv
-                   @ GHC.Base.String
-                   @ (GHC.Types.Int, GHC.Base.String)
-                   Main.test2) -}
-62666454c9cb6aaec53cd041bf5e2b75
-  test2 ::
-    Control.Comonad.Trans.Coiter.CoiterT
-      (MyEnv.MyEnv GHC.Types.Char) GHC.Base.String
-    -> (GHC.Types.Int, [GHC.Types.Char])
-  {- Arity: 1,
-     Unfolding: (\ wd :: Control.Comonad.Trans.Coiter.CoiterT
-                           (MyEnv.MyEnv GHC.Types.Char) GHC.Base.String ->
-                 (case wd
-                         `cast`
-                       (Control.Comonad.Trans.Coiter.NTCo:CoiterT[0]
-                            <MyEnv.MyEnv GHC.Types.Char>_N
-                            <[GHC.Types.Char]>_N) of wild { MyEnv.MyEnv e1 a3 ->
-                  case a3 of wild1 { (,) x ds1 ->
-                  case GHC.List.$wlenAcc @ GHC.Types.Char x 0 of ww2 { DEFAULT ->
-                  GHC.Types.I# ww2 } } },
-                  case wd
-                         `cast`
-                       (Control.Comonad.Trans.Coiter.NTCo:CoiterT[0]
-                            <MyEnv.MyEnv GHC.Types.Char>_N
-                            <[GHC.Types.Char]>_N) of wild { MyEnv.MyEnv e1 a3 ->
-                  case a3 of wild1 { (,) x ds1 ->
-                  GHC.Base.++
-                    @ GHC.Types.Char
-                    x
-                    (case e1 of ww { GHC.Types.C# ww1 ->
-                     case ww1 of ds {
-                       DEFAULT
-                       -> GHC.Types.:
-                            @ GHC.Types.Char
-                            GHC.Show.shows15
-                            (GHC.Show.$wshowLitChar ds Main.tests7)
-                       '\'' -> Main.tests6 } }) } })) -}
 5735170ab64bc4a232c47c5ea270d640
   testi ::
     Control.Comonad.Trans.Coiter.CoiterT
@@ -498,6 +454,56 @@ d071e00b69e416e9ed8df2d48c08ec56
                    @ GHC.Types.Char
                    GHC.Show.shows15
                    (GHC.Types.[] @ GHC.Types.Char)) -}
+6bbdfbca6c6e7d6da980c72a03a7b97f
+  testw ::
+    Control.Comonad.Trans.Coiter.CoiterT
+      (MyEnv.MyEnv GHC.Types.Char) (GHC.Types.Int, GHC.Base.String)
+  {- Unfolding: (Main.testw1 Main.tests) -}
+598b4191a6e4d9fc23855498342b6ef5
+  testw1 ::
+    Control.Comonad.Trans.Coiter.CoiterT
+      (MyEnv.MyEnv GHC.Types.Char) GHC.Base.String
+    -> Control.Comonad.Trans.Coiter.CoiterT
+         (MyEnv.MyEnv GHC.Types.Char) (GHC.Types.Int, GHC.Base.String)
+  {- Unfolding: (Control.Comonad.Trans.Coiter.$w$cextend
+                   @ (MyEnv.MyEnv GHC.Types.Char)
+                   Main.$s$fComonadCoiterT_$s$fComonadMyEnv
+                   @ GHC.Base.String
+                   @ (GHC.Types.Int, GHC.Base.String)
+                   Main.testw2) -}
+b0b1577560994ef1806710b7e0b8218a
+  testw2 ::
+    Control.Comonad.Trans.Coiter.CoiterT
+      (MyEnv.MyEnv GHC.Types.Char) GHC.Base.String
+    -> (GHC.Types.Int, [GHC.Types.Char])
+  {- Arity: 1,
+     Unfolding: (\ wd :: Control.Comonad.Trans.Coiter.CoiterT
+                           (MyEnv.MyEnv GHC.Types.Char) GHC.Base.String ->
+                 (case wd
+                         `cast`
+                       (Control.Comonad.Trans.Coiter.NTCo:CoiterT[0]
+                            <MyEnv.MyEnv GHC.Types.Char>_N
+                            <[GHC.Types.Char]>_N) of wild { MyEnv.MyEnv e1 a3 ->
+                  case a3 of wild1 { (,) x ds1 ->
+                  case GHC.List.$wlenAcc @ GHC.Types.Char x 0 of ww2 { DEFAULT ->
+                  GHC.Types.I# ww2 } } },
+                  case wd
+                         `cast`
+                       (Control.Comonad.Trans.Coiter.NTCo:CoiterT[0]
+                            <MyEnv.MyEnv GHC.Types.Char>_N
+                            <[GHC.Types.Char]>_N) of wild { MyEnv.MyEnv e1 a3 ->
+                  case a3 of wild1 { (,) x ds1 ->
+                  GHC.Base.++
+                    @ GHC.Types.Char
+                    x
+                    (case e1 of ww { GHC.Types.C# ww1 ->
+                     case ww1 of ds {
+                       DEFAULT
+                       -> GHC.Types.:
+                            @ GHC.Types.Char
+                            GHC.Show.shows15
+                            (GHC.Show.$wshowLitChar ds Main.tests7)
+                       '\'' -> Main.tests6 } }) } })) -}
 "SPEC/Main $fComonadEnvT @ Char @ Identity" [ALWAYS] forall $dFunctor :: GHC.Base.Functor
                                                                            (Control.Comonad.Trans.Env.EnvT
                                                                               GHC.Types.Char

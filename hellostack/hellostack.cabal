@@ -29,7 +29,7 @@ executable hellostack-exe
                      , transformers
                      , mtl
                      , hellostack
-  other-modules:       Adder, FreeAdder, CoFreeAdder
+  other-modules:       MyEnv, Adder, FreeAdder, CoFreeAdder, Pairing
   default-language:    Haskell2010
 
 test-suite hellostack-test

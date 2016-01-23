@@ -1,18 +1,23 @@
 
 ==================== FINAL INTERFACE ====================
-2016-01-10 02:33:43.5663668 UTC
+2016-01-21 05:58:44.3171601 UTC
 
 interface main@main:Adder 7102
-  interface hash: 281f0e1c097dddb3b788ca394dfee31b
-  ABI hash: 90974506101aeb86153265b3cc027eb7
-  export-list hash: bd343f1af4b74f30f3c85e555a698e0b
+  interface hash: 7b9991d841ddc258c2627fed9d7bf058
+  ABI hash: 7566f16b91efbf2b2d97c32c1b29545f
+  export-list hash: 1f16683ed18f8582b063f14cc65effa2
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: bd4988337968f447c8105e933c7b6aad
   sig of: Nothing
   used TH splices: False
   where
 exports:
-  Adder.AdderF{Adder.Add Adder.Clear Adder.Total}
+  Adder.AdderF{Adder.Add}
+  Adder.ClearF{Adder.Clear}
+  Adder.CoAdderF{Adder.CoAdd Adder.runAdd}
+  Adder.CoClearF{Adder.CoClear Adder.runClear}
+  Adder.CoTotalF{Adder.CoTotal Adder.runTotal}
+  Adder.TotalF{Adder.Total}
 module dependencies:
 package dependencies: base-4.8.1.0* ghc-prim-0.4.0.0
                       integer-gmp-1.0.0.0
@@ -21,9 +26,8 @@ family instance modules: base-4.8.1.0:Control.Applicative
                          base-4.8.1.0:Data.Either base-4.8.1.0:Data.Monoid
                          base-4.8.1.0:Data.Type.Equality base-4.8.1.0:GHC.Generics
 import  -/  base-4.8.1.0:GHC.Base a4939789b2cfd60b36ed163e56a623cd
-import  -/  base-4.8.1.0:GHC.Show b8c65ca3124f92a166c9f05120382442
 import  -/  base-4.8.1.0:Prelude 518f762991bc287d78f21a73c974da1f
-e6795d042ba5706c10f18f89639a9d2b
+e9e32a58ea80816323683d0867c1afed
   $fFunctorAdderF :: GHC.Base.Functor Adder.AdderF
   DFunId[0]
   {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
@@ -31,109 +35,175 @@ e6795d042ba5706c10f18f89639a9d2b
                   @ Adder.AdderF
                   Adder.$fFunctorAdderF_$cfmap
                   Adder.$fFunctorAdderF_$c<$ -}
-e6795d042ba5706c10f18f89639a9d2b
+e9e32a58ea80816323683d0867c1afed
   $fFunctorAdderF_$c<$ :: a -> Adder.AdderF b -> Adder.AdderF a
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U>,
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*U(U,A)>m,
      Unfolding: InlineRule (2, True, False)
-                (\ @ a @ b eta :: a eta1 :: Adder.AdderF b ->
-                 case eta1 of wild {
-                   Adder.Add n k -> Adder.Add @ a n eta
-                   Adder.Clear k -> Adder.Clear @ a eta
-                   Adder.Total g
-                   -> Adder.Total @ a (\ x :: GHC.Types.Int -> eta) }) -}
-e6795d042ba5706c10f18f89639a9d2b
+                (\ @ a @ b eta :: a ds :: Adder.AdderF b ->
+                 case ds of wild { Adder.Add n k -> Adder.Add @ a n eta }) -}
+e9e32a58ea80816323683d0867c1afed
   $fFunctorAdderF_$cfmap ::
     (a -> b) -> Adder.AdderF a -> Adder.AdderF b
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U>,
-     Unfolding: (\ @ a @ b f :: a -> b ds :: Adder.AdderF a ->
-                 case ds of wild {
-                   Adder.Add n k -> Adder.Add @ b n (f k)
-                   Adder.Clear k -> Adder.Clear @ b (f k)
-                   Adder.Total g
-                   -> Adder.Total @ b (GHC.Base.. @ a @ b @ GHC.Types.Int f g) }) -}
-e6795d042ba5706c10f18f89639a9d2b
-  $fShowAdderF :: GHC.Show.Show k => GHC.Show.Show (Adder.AdderF k)
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U,U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b f :: a -> b ds :: Adder.AdderF a ->
+                 case ds of wild { Adder.Add n k -> Adder.Add @ b n (f k) }) -}
+ba82fdbdc91b8159663fdd0d7131d2c6
+  $fFunctorClearF :: GHC.Base.Functor Adder.ClearF
   DFunId[0]
-  {- Arity: 1, HasNoCafRefs, Strictness: <L,U(A,C(U),A)>m,
-     Inline: [ALWAYS] CONLIKE,
-     Unfolding: DFun: @ k $dShow :: GHC.Show.Show k.
-                  @ (Adder.AdderF k)
-                  (Adder.$fShowAdderF_$cshowsPrec @ k $dShow)
-                  (Adder.$fShowAdderF_$cshow @ k $dShow)
-                  (Adder.$fShowAdderF_$cshowList @ k $dShow) -}
-d623c2e3a54774e1cbf2a84f913e6f55
-  $fShowAdderF1 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 0) -}
-e6795d042ba5706c10f18f89639a9d2b
-  $fShowAdderF_$cshow ::
-    GHC.Show.Show k => Adder.AdderF k -> GHC.Base.String
-  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*U(A,1*C1(U),A)><S,1*U>,
-     Unfolding: (\ @ k $dShow :: GHC.Show.Show k ds :: Adder.AdderF k ->
-                 case ds of wild {
-                   Adder.Add n k1
-                   -> GHC.CString.unpackAppendCString#
-                        " Add "#
-                        (case n of ww2 { GHC.Types.I# ww3 ->
-                         case GHC.Show.$wshowSignedInt
-                                0
-                                ww3
-                                (GHC.Types.[] @ GHC.Types.Char) of ww4 { (#,#) ww5 ww6 ->
-                         GHC.Base.++
-                           @ GHC.Types.Char
-                           (GHC.Types.: @ GHC.Types.Char ww5 ww6)
-                           (GHC.Show.show @ k $dShow k1) } })
-                   Adder.Clear k1
-                   -> GHC.CString.unpackAppendCString#
-                        " Clear "#
-                        (GHC.Show.show @ k $dShow k1)
-                   Adder.Total g
-                   -> GHC.CString.unpackAppendCString#
-                        " Total "#
-                        (GHC.Show.show @ k $dShow (g Adder.$fShowAdderF1)) }) -}
-e6795d042ba5706c10f18f89639a9d2b
-  $fShowAdderF_$cshowList ::
-    GHC.Show.Show k => [Adder.AdderF k] -> GHC.Show.ShowS
-  {- Arity: 3, HasNoCafRefs, Strictness: <L,U(A,C(U),A)><S,1*U><L,U>,
-     Unfolding: (\ @ k
-                   $dShow :: GHC.Show.Show k
-                   ls :: [Adder.AdderF k]
-                   s :: GHC.Base.String ->
-                 GHC.Show.showList__
-                   @ (Adder.AdderF k)
-                   (\ x :: Adder.AdderF k s1 :: GHC.Base.String[OneShot] ->
-                    GHC.Base.++
-                      @ GHC.Types.Char
-                      (Adder.$fShowAdderF_$cshow @ k $dShow x)
-                      s1)
-                   ls
-                   s) -}
-e6795d042ba5706c10f18f89639a9d2b
-  $fShowAdderF_$cshowsPrec ::
-    GHC.Show.Show k =>
-    GHC.Types.Int -> Adder.AdderF k -> GHC.Show.ShowS
-  {- Arity: 4, HasNoCafRefs,
-     Strictness: <L,1*U(A,1*C1(U),A)><L,A><S,1*U><L,1*U>,
-     Unfolding: InlineRule (4, True, False)
-                (\ @ k
-                   $dShow :: GHC.Show.Show k
-                   ds :: GHC.Types.Int
-                   x :: Adder.AdderF k
-                   s :: GHC.Base.String ->
-                 GHC.Base.augment
-                   @ GHC.Types.Char
-                   (\ @ b c :: GHC.Types.Char -> b -> b[OneShot] n :: b[OneShot] ->
-                    GHC.Base.foldr
-                      @ GHC.Types.Char
-                      @ b
-                      c
-                      n
-                      (Adder.$fShowAdderF_$cshow @ k $dShow x))
-                   s) -}
-e6795d042ba5706c10f18f89639a9d2b
-  data AdderF k
-    = Add GHC.Types.Int k | Clear k | Total (GHC.Types.Int -> k)
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Adder.ClearF
+                  Adder.$fFunctorClearF_$cfmap
+                  Adder.$fFunctorClearF_$c<$ -}
+ba82fdbdc91b8159663fdd0d7131d2c6
+  $fFunctorClearF_$c<$ :: a -> Adder.ClearF b -> Adder.ClearF a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*H>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b eta :: a ds :: Adder.ClearF b ->
+                 case ds of wild { Adder.Clear k -> Adder.Clear @ a eta }) -}
+ba82fdbdc91b8159663fdd0d7131d2c6
+  $fFunctorClearF_$cfmap ::
+    (a -> b) -> Adder.ClearF a -> Adder.ClearF b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b f :: a -> b ds :: Adder.ClearF a ->
+                 case ds of wild { Adder.Clear k -> Adder.Clear @ b (f k) }) -}
+e69dd5c75b99f9b467c1c64551b6c2c4
+  $fFunctorCoAdderF :: GHC.Base.Functor Adder.CoAdderF
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Adder.CoAdderF
+                  Adder.$fFunctorCoAdderF_$cfmap
+                  Adder.$fFunctorCoAdderF_$c<$ -}
+e69dd5c75b99f9b467c1c64551b6c2c4
+  $fFunctorCoAdderF_$c<$ :: a -> Adder.CoAdderF b -> Adder.CoAdderF a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*H>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b eta :: a eta1 :: Adder.CoAdderF b ->
+                 case eta1 of wild { Adder.CoAdd g ->
+                 Adder.CoAdd @ a (\ x :: GHC.Types.Int -> eta) }) -}
+e69dd5c75b99f9b467c1c64551b6c2c4
+  $fFunctorCoAdderF_$cfmap ::
+    (a -> b) -> Adder.CoAdderF a -> Adder.CoAdderF b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U(C(U))>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b f :: a -> b ds :: Adder.CoAdderF a ->
+                 case ds of wild { Adder.CoAdd g ->
+                 Adder.CoAdd @ b (GHC.Base.. @ a @ b @ GHC.Types.Int f g) }) -}
+5365616e08c8a684eef9ecd9b1cfbd19
+  $fFunctorCoClearF :: GHC.Base.Functor Adder.CoClearF
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Adder.CoClearF
+                  Adder.$fFunctorCoClearF_$cfmap
+                  Adder.$fFunctorCoClearF_$c<$ -}
+5365616e08c8a684eef9ecd9b1cfbd19
+  $fFunctorCoClearF_$c<$ :: a -> Adder.CoClearF b -> Adder.CoClearF a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*H>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b eta :: a ds :: Adder.CoClearF b ->
+                 case ds of wild { Adder.CoClear k -> Adder.CoClear @ a eta }) -}
+5365616e08c8a684eef9ecd9b1cfbd19
+  $fFunctorCoClearF_$cfmap ::
+    (a -> b) -> Adder.CoClearF a -> Adder.CoClearF b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,1*C1(U)><S,1*U(U)>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b f :: a -> b ds :: Adder.CoClearF a ->
+                 case ds of wild { Adder.CoClear k -> Adder.CoClear @ b (f k) }) -}
+2092d1aff840d3c8f5024cd0310c3487
+  $fFunctorCoTotalF :: GHC.Base.Functor Adder.CoTotalF
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Adder.CoTotalF
+                  Adder.$fFunctorCoTotalF_$cfmap
+                  Adder.$fFunctorCoTotalF_$c<$ -}
+2092d1aff840d3c8f5024cd0310c3487
+  $fFunctorCoTotalF_$c<$ :: a -> Adder.CoTotalF b -> Adder.CoTotalF a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S(S),1*U(1*U(U,A))>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b eta :: a ds :: Adder.CoTotalF b ->
+                 case ds of wild { Adder.CoTotal ds1 ->
+                 case ds1 of wild1 { (,) n k -> Adder.CoTotal @ a (n, eta) } }) -}
+2092d1aff840d3c8f5024cd0310c3487
+  $fFunctorCoTotalF_$cfmap ::
+    (a -> b) -> Adder.CoTotalF a -> Adder.CoTotalF b
+  {- Arity: 2, HasNoCafRefs,
+     Strictness: <L,1*C1(U)><S(S),1*U(1*U(U,U))>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b f :: a -> b ds :: Adder.CoTotalF a ->
+                 case ds of wild { Adder.CoTotal ds1 ->
+                 case ds1 of wild1 { (,) n k -> Adder.CoTotal @ b (n, f k) } }) -}
+d7d5c9c58fe84e6f51ef26b7429d56c3
+  $fFunctorTotalF :: GHC.Base.Functor Adder.TotalF
+  DFunId[0]
+  {- HasNoCafRefs, Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Adder.TotalF
+                  Adder.$fFunctorTotalF_$cfmap
+                  Adder.$fFunctorTotalF_$c<$ -}
+d7d5c9c58fe84e6f51ef26b7429d56c3
+  $fFunctorTotalF_$c<$ :: a -> Adder.TotalF b -> Adder.TotalF a
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,U><S,1*H>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b eta :: a eta1 :: Adder.TotalF b ->
+                 case eta1 of wild { Adder.Total g ->
+                 Adder.Total @ a (\ x :: GHC.Types.Int -> eta) }) -}
+d7d5c9c58fe84e6f51ef26b7429d56c3
+  $fFunctorTotalF_$cfmap ::
+    (a -> b) -> Adder.TotalF a -> Adder.TotalF b
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,C(U)><S,1*U(C(U))>m,
+     Unfolding: InlineRule (2, True, False)
+                (\ @ a @ b f :: a -> b ds :: Adder.TotalF a ->
+                 case ds of wild { Adder.Total g ->
+                 Adder.Total @ b (GHC.Base.. @ a @ b @ GHC.Types.Int f g) }) -}
+e9e32a58ea80816323683d0867c1afed
+  data AdderF k = Add GHC.Types.Int k
+ba82fdbdc91b8159663fdd0d7131d2c6
+  data ClearF k = Clear k
+    Promotable
+e69dd5c75b99f9b467c1c64551b6c2c4
+  data CoAdderF k = CoAdd {runAdd :: GHC.Types.Int -> k}
+5365616e08c8a684eef9ecd9b1cfbd19
+  data CoClearF k = CoClear {runClear :: k}
+    Promotable
+2092d1aff840d3c8f5024cd0310c3487
+  data CoTotalF k = CoTotal {runTotal :: (GHC.Types.Int, k)}
+d7d5c9c58fe84e6f51ef26b7429d56c3
+  data TotalF k = Total (GHC.Types.Int -> k)
+61b834d05830b3a5fac0c29accfd657c
+  runAdd :: Adder.CoAdderF k -> GHC.Types.Int -> k
+  RecSel Adder.CoAdderF
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k ds :: Adder.CoAdderF k ->
+                 case ds of wild { Adder.CoAdd ds1 -> ds1 }) -}
+bff0267b7d21d6e2c0aa233e0df9ea69
+  runClear :: Adder.CoClearF k -> k
+  RecSel Adder.CoClearF
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k ds :: Adder.CoClearF k ->
+                 case ds of wild { Adder.CoClear ds1 -> ds1 }) -}
+9c225a97f44716e33d6be2d934916c08
+  runTotal :: Adder.CoTotalF k -> (GHC.Types.Int, k)
+  RecSel Adder.CoTotalF
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(1*U(U,U))>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ k ds :: Adder.CoTotalF k ->
+                 case ds of wild { Adder.CoTotal ds1 -> ds1 }) -}
 instance GHC.Base.Functor [Adder.AdderF] = Adder.$fFunctorAdderF
-instance GHC.Show.Show [Adder.AdderF] = Adder.$fShowAdderF
+instance GHC.Base.Functor [Adder.ClearF] = Adder.$fFunctorClearF
+instance GHC.Base.Functor [Adder.CoAdderF]
+  = Adder.$fFunctorCoAdderF
+instance GHC.Base.Functor [Adder.CoClearF]
+  = Adder.$fFunctorCoClearF
+instance GHC.Base.Functor [Adder.CoTotalF]
+  = Adder.$fFunctorCoTotalF
+instance GHC.Base.Functor [Adder.TotalF] = Adder.$fFunctorTotalF
 vectorised variables:
 vectorised tycons:
 vectorised reused tycons:
